@@ -1,3 +1,8 @@
+## Theme suggestions
+```
+https://sqndr.github.io/d8-theming-guide/theme-hooks-and-theme-hook-suggestions/theme-hook-suggestions.html
+```
+
 ## Theme preprocess
 ```
 https://developpeur-drupal.com/en/article/theme-preprocess-and-suggestions-drupal-8-bootstrap-sub-theme
