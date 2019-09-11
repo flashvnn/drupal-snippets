@@ -1,3 +1,9 @@
+## Twig function for Drupal 8
+```php
+https://www.drupal.org/docs/8/theming/twig/functions-in-twig-templates
+https://www.drupal.org/docs/8/modules/twig-tweak/cheat-sheet
+```
+
 ## Check request is admin route
 ```php
 if (\Drupal::service('router.admin_context')->isAdminRoute()) {
