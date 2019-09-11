@@ -114,7 +114,7 @@ $fields = $entityManager->getFieldDefinitions($entity_type, $bundle);
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
  */
-function ps_line_helper_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function MODULE_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $storge = $form_state->getStorage();
   if ($storge['view']->id() === 'view_news') {
     if (isset($form['changed_date_select']['#options']) && count($form['changed_date_select']['#options']) > 1) {
