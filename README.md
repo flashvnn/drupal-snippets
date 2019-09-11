@@ -1,3 +1,9 @@
+## Override service class
+```
+https://kevinquillen.com/overriding-services-drupal-8-serviceprovidebase
+https://www.bounteous.com/insights/2017/04/19/drupal-how-override-core-drupal-8-service/
+```
+
 ## Theme suggestions
 ```
 https://sqndr.github.io/d8-theming-guide/theme-hooks-and-theme-hook-suggestions/theme-hook-suggestions.html
