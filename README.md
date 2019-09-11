@@ -1,3 +1,13 @@
+## Check request is admin route
+```php
+if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+ // do stuff
+}
+
+```
+Reference: https://drupal.stackexchange.com/a/219371/1542
+
+
 ## List Drupal 8 form api elements
 ```php
 https://api.drupal.org/api/drupal/elements/8.7.x
