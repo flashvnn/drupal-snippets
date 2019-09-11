@@ -1,3 +1,8 @@
+## Drupal logger object as array
+```php
+   \Drupal::logger('module_name')->notice('<pre><code>' . print_r($array_to_print, TRUE) . '</code></pre>'    );
+```
+
 ## Drupal form ajax command
 ```
 https://www.drupal.org/docs/8/api/javascript-api/ajax-forms
