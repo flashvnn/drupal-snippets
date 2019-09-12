@@ -13,11 +13,18 @@
 
 ## Drupal create link with target blank
 ```php
+// Use route
 $options = ['absolute' => TRUE, 'attributes' => ['target' => '_blank']];
 $link_object = Drupal\Core\Link::createFromRoute(t('the general terms and conditions of business'),
     'entity.node.canonical', ['node' => "123"],
     $options);
 $link = $link_object->toString();
+
+// Use url
+$options = ['absolute' => TRUE, 'attributes' => ['target' => '_blank']];
+$link_object = Link::fromTextAndUrl('Detail', Url::fromUserInput('/node', $options));
+$link = $link_object->toString();
+
 ```
 
 ## Drupal logger object as array
