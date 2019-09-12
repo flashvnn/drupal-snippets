@@ -1,3 +1,16 @@
+## Drupal common entity route 
+
+### Node Route
+
+| Links Key | Route Name | Route Example URI |
+| --- | --- | --- |
+| canonical | entity.node.canonical | /node/1 |
+| add-page | entity.node.add_page | /node/add |
+| add-form | entity.node.add_form | /node/add/article |
+| delete-form | entity.node.delete_form | /node/1/delete |
+| collection | entity.node.collection | /admin/content |
+
+
 ## Drupal create link with target blank
 ```php
 $options = ['absolute' => TRUE, 'attributes' => ['target' => '_blank']];
