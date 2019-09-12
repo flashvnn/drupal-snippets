@@ -202,6 +202,18 @@ function MODULE_form_views_exposed_form_alter(&$form, FormStateInterface $form_s
 $request->query->has(static::AJAX_FORM_REQUEST))
 ```
 
+### Add basic authetication for /user url
+```
+# Add in virtualhost config
+<Location /user>
+  AuthUserFile /home/path/.htpasswd
+  AuthName "Password Protected Area"
+  AuthType Basic
+  Require valid-user
+</Location>
+
+```
+
 ## Install Acquia Dev Desktop
 Install Microsoft Visual C++ 2010 Redistributable Package before run Acquia Dev Desktop
 ```
