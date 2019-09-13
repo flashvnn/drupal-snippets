@@ -2,13 +2,13 @@
 
 ### Node Route
 
-| Links Key | Route Name | Route Example URI |
-| --- | --- | --- |
-| canonical | entity.node.canonical | /node/1 |
-| add-page | entity.node.add_page | /node/add |
-| add-form | entity.node.add_form | /node/add/article |
-| delete-form | entity.node.delete_form | /node/1/delete |
-| collection | entity.node.collection | /admin/content |
+| Links Key | Route Name | Route Example URI | Code Example |
+| --- | --- | --- | --- |
+| canonical | entity.node.canonical | /node/1 | Url::fromRoute('entity.node.canonical') |
+| add-page | entity.node.add_page | /node/add | Url::fromRoute('entity.node.add_page') |
+| add-form | entity.node.add_form | /node/add/article | Url::fromRoute('entity.node.add_form') |
+| delete-form | entity.node.delete_form | /node/1/delete | Url::fromRoute('entity.node.delete_form') |
+| collection | entity.node.collection | /admin/content | Url::fromRoute('entity.node.collection') |
 
 
 ## Drupal create link with target blank
