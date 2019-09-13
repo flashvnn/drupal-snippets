@@ -36,7 +36,7 @@ Render form element without div wrapper
 {{ form.name|without('#theme') }}
 ```
 
-Replace class of element
+Replace string or class of element
 ```php
 {% set form_name = form.name|render %}
 {{ form_name|replace('old_class':'new_class')|raw }}
