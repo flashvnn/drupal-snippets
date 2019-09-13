@@ -1,3 +1,49 @@
+## Drupal theme form
+
+Example for create theme for form id **'my_awesome_form'** with module/theme **example**
+
+```php
+function example_theme() {
+  return [
+    'my_awesome_form' => [
+      'render element' => 'form',
+    ],
+  ];
+}
+```
+
+Create template templates/**my-awesome-form**.html.twig in example module
+
+```php
+{{ form.form_build_id }} # alway require
+{{ form.form_token }} # alway require
+{{ form.form_id }} # alway require
+
+<div class="row">
+  <div class="col-md-6">
+    {{ form.name }}
+  </div>
+  <div class="col-md-6">
+    {{ form.address }}
+  </div>
+</div>
+```
+
+### Tips
+Render form element without div wrapper
+
+```php
+{{ form.name|without('#theme') }}
+```
+
+Replace class of element
+```php
+{% set form_name = form.name|render %}
+{{ form_name|replace('old_class':'new_class')|raw }}
+```
+
+
+
 ## Drupal common entity route 
 
 ### Node Route
