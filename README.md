@@ -1,3 +1,9 @@
+## List all block and id
+```php
+drush ev "print_r(array_keys(\Drupal::service('plugin.manager.block')->getDefinitions()));"
+php
+
+
 ## Validator for checking the field depending on the value of another field
 ```php
 https://makedrupaleasy.com/articles/drupal-8-custom-validator-checking-field-depending-value-another-field
