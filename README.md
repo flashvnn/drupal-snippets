@@ -7,8 +7,9 @@
 | canonical | entity.node.canonical | /node/1 | Url::fromRoute('entity.node.canonical') |
 | add-page | entity.node.add_page | /node/add | Url::fromRoute('entity.node.add_page') |
 | add-form | entity.node.add_form | /node/add/article | Url::fromRoute('entity.node.add_form') |
-| delete-form | entity.node.delete_form | /node/1/delete | Url::fromRoute('entity.node.delete_form') |
+| delete-form | entity.node.delete_form | /node/1/delete | Url::fromRoute('entity.node.delete_form', ['node' => $nid]) |
 | collection | entity.node.collection | /admin/content | Url::fromRoute('entity.node.collection') |
+| latest_version | entity.node.latest_version | /node/1/latest | Url::fromRoute('entity.node.latest_version', ['node' => $nid]) |
 
 
 ## Drupal create link with target blank
