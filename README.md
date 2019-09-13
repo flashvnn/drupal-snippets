@@ -1,3 +1,18 @@
+## Javascript get url query params
+```php
+$.urlParam = function (name) {
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+                      .exec(window.location.search);
+
+    return (results !== null) ? results[1] || 0 : false;
+}
+
+console.log($.urlParam('ref')); //registration
+console.log($.urlParam('email')); //bobo@example.com
+
+```
+
+
 ## List all block and id
 ```php
 drush ev "print_r(array_keys(\Drupal::service('plugin.manager.block')->getDefinitions()));"
