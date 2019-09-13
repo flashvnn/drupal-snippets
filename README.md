@@ -6,10 +6,13 @@
 | --- | --- | --- | --- |
 | canonical | entity.node.canonical | /node/1 | Url::fromRoute('entity.node.canonical') |
 | add-page | entity.node.add_page | /node/add | Url::fromRoute('entity.node.add_page') |
-| add-form | entity.node.add_form | /node/add/article | Url::fromRoute('entity.node.add_form') |
+| add-form | entity.node.add | /node/add/article | Url::fromRoute('entity.node.add', ['node_type' => 'article']) |
 | delete-form | entity.node.delete_form | /node/1/delete | Url::fromRoute('entity.node.delete_form', ['node' => $nid]) |
 | collection | entity.node.collection | /admin/content | Url::fromRoute('entity.node.collection') |
 | latest_version | entity.node.latest_version | /node/1/latest | Url::fromRoute('entity.node.latest_version', ['node' => $nid]) |
+| revisions | entity.node.version_history | /node/1/revisions | Url::fromRoute('entity.node.version_history', ['node' => $nid]) |
+| node preview | entity.node.preview | /node/preview/uuid/full | Url::fromRoute('entity.node.preview', ['node_preview' => $uuid, 'view_mode_id' => 'full']) |
+
 
 
 ## Drupal create link with target blank
