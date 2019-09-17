@@ -1,3 +1,8 @@
+## Drupal queue 
+```php
+https://www.sitepoint.com/drupal-8-queue-api-powerful-manual-and-cron-queueing/
+```
+
 ## Javascript get url query params
 ```php
 $.urlParam = function (name) {
