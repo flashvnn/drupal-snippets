@@ -165,6 +165,7 @@ Render form element without div wrapper
 
 ```php
 {{ form.name|without('#theme') }}
+{{ form.name|without('#theme_wrappers') }}
 ```
 
 Replace string or class of element
