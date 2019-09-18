@@ -176,7 +176,7 @@ Render form element without div wrapper
 Replace string or class of element
 ```php
 {% set form_name = form.name|render %}
-{{ form_name|replace('old_class':'new_class')|raw }}
+{{ form_name|replace({'old_class':'new_class'})|raw }}
 ```
 
 
