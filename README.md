@@ -1,3 +1,8 @@
+## Config entity and translate config
+```php
+https://www.drupal.org/node/1905070
+```
+
 ## Drupal Entity API cheat sheet
 ```php
 // https://www.metaltoad.com/blog/drupal-8-entity-api-cheat-sheet
