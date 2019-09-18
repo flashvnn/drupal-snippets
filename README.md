@@ -1,3 +1,97 @@
+## Drupal Entity API cheat sheet
+```php
+// https://www.metaltoad.com/blog/drupal-8-entity-api-cheat-sheet
+// Load a node by NID:
+$nid = 123;     // example value
+$node_storage = \Drupal::entityTypeManager()->getStorage('node');
+$node = $node_storage->load($nid);
+
+// Get a built-in field value:
+echo $node->get('title')->value;           // "Lorem Ipsum..."
+echo $node->get('created')->value;         // 1510948801
+echo $node->get('body')->value;            // "The full node body, <strong>with HTML</strong>"
+echo $node->get('body')->summary;          // "This is the summary"
+// a custom text field
+echo $node->get('field_foo')->value;       // "whatever is in your custom field"
+// a file field
+echo $node->get('field_image')->target_id; // 432 (a managed file FID)
+
+echo $node->title->value;            // "Lorem Ipsum..."
+echo $node->created->value;          // 1510948801
+echo $node->body->value;             // "This is the full node body, <strong>with HTML</strong>"
+echo $node->body->summary;           // "This is the summary"
+echo $node->field_foo->value;        // "whatever is in your custom field"
+echo $node->field_image->target_id;  // 432
+
+// Paragraphs
+$my_paragraph = null;
+ 
+foreach ($node->get('field_paragraph_reference') as $para) {
+  if ($para->entity->getType() == 'your_paragraph_type') {   // e.g., "main_content" or "social_media"
+    $my_paragraph = $para->entity;
+  }
+}
+ 
+if (!empty($my_paragraph)) {
+  // $my_paragraph is a regular entity and can be interacted with like any other entity
+  echo $my_paragraph->field_somefield->value;
+ 
+  // (however, they don't have a "title" like a node)
+  echo $my_paragraph->title->value;  // <-- this won't work
+} else {
+  echo "The node doesn't have this paragraph type.";
+}
+
+// Working with File entities
+$fid = 42;      // example value
+$file_storage = \Drupal::entityTypeManager()->getStorage('file');
+$file = $file_storage->load($fid);
+
+echo $file->getFileUri();   // "public://file123.jpg"
+// if you want the URL without Drupal's custom scheme, you can translate it to a plain URL:
+echo file_url_transform_relative(file_create_url($file->getFileUri()));   // "/sites/default/files/public/file123.jpg"
+echo $file->filename->value;   // "file123.jpg"
+echo $file->filemime->value;   // "image/jpeg"
+echo $file->filesize->value;   // 63518  (size in bytes)
+echo $file->created->value;    // 1511206249  (Unix timestamp)
+echo $file->changed->value;    // 1511234256  (Unix timestamp)
+echo $file->id();              // 432
+
+// The file's user data
+echo $file->uid->target_id;               // 1
+echo $file->uid->value;                   // <-- doesn't work. Use target_id instead.
+echo $file->uid->entity->name->value;     // "alice"
+echo $file->uid->entity->timezone->value; // "America/Los_Angeles"
+
+// Working with Entity References
+foreach ($node->field_my_entity_reference as $reference) {
+ 
+  // if you chose "Entity ID" as the display mode for the entity reference field,
+  // the target_id is the ONLY value you will have access to
+  echo $reference->target_id;    // 1 (a node's nid)
+ 
+  // if you chose "Rendered Entity" as the display mode, you'll be able to 
+  // access the rest of the node's data.
+  echo $reference->entity->title->value;    // "Moby Dick"
+ 
+}
+// Populate the value of an entity reference field which allows multiple values (this replaces any existing value in the DB)
+$nids = [3,4,5,6];   // example value
+$node->set('field_my_entity_reference', $nids);
+$node->save();
+
+// Append new referenced items to an entity reference field (this preserves existing values)
+$nids = [3,4,5,6];   // example value
+foreach ($nids as $nid) {
+  $node->field_my_entity_reference[] = [
+    'target_id' => $nid
+  ];
+}
+$node->save();
+
+```
+
+
 ## Drupal queue 
 ```php
 https://www.sitepoint.com/drupal-8-queue-api-powerful-manual-and-cron-queueing/
