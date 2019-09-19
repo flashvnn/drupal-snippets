@@ -1,3 +1,13 @@
+## Drupal textarea no wrap text
+```php
+    $form['textarea_name'] = [
+      '#title' => $this->t('Textarea Title'),
+      '#type' => 'textarea',
+      '#attributes' => ['style' => ['white-space:nowrap']],
+    ];
+
+```
+
 ## Config entity and translate config
 ```php
 https://www.drupal.org/node/1905070
