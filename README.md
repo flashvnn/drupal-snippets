@@ -338,6 +338,10 @@ With a conditional:
 With a filter:
 {% for u in users|sort('name') %}
 
+Get current url
+{{ url('<current>') }}
+
+
 ```
 
 ## Check request is admin route
