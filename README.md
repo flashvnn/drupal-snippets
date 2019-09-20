@@ -341,6 +341,8 @@ With a filter:
 Get current url
 {{ url('<current>') }}
 
+Get url as array
+{% set url_arr = url('<current>')|render|split('/') %}
 
 ```
 
