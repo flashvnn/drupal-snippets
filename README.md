@@ -266,9 +266,78 @@ https://developpeur-drupal.com/en/article/theme-preprocess-and-suggestions-drupa
 ```
 
 ## Twig function for Drupal 8
-```php
+https://danielmg.org/php/twig-cheatsheet.html
 https://www.drupal.org/docs/8/theming/twig/functions-in-twig-templates
 https://www.drupal.org/docs/8/modules/twig-tweak/cheat-sheet
+
+```php
+# Base Syntax
+Output: {{ … }}
+Base tag: {% … %}
+Comments: {# … #}
+Array: ['hello', 'world', 3]
+Hash: {'name': 'Tyrion', 'age': 5}
+
+# Setting Variables
+
+Sets a variable value: {% set name = 'Tyrion' %}
+
+Append or merge Strings or arrays:
+{% set foo = 'Hello ' ~ name %}
+{% set foo = foo|merge(bar) %}
+
+Setting a default vale if foo is not previously defined
+{% set foo = foo|default('var is not defined') %}
+
+# Including other Templates
+
+Simple include:
+
+{% include '@architect/includes/header.html.twig' %}
+# architect is theme name
+
+Inlcude with custom vars:
+{% set headerVars = {'title': 'Homepage'} %}
+{% include '@architect/includes/header.html.twig' with headerVars %}
+
+
+# Macros
+
+{# _macros.twig #}
+{% macro foo(var) %}
+    Foo and {{ var }}
+{% endmacro %}
+
+If you've defined the macros in the same file, you need to import them, using _self: {% import _self as macro %}
+
+{# mytemplate.twig #}
+{% import '_macros.twig' as m %}
+{{ m.foo('bar') }}
+
+# Simple "If/Else" control
+{% if kenny.sick %}
+    Kenny is sick.
+{% elseif kenny.dead %}
+    You killed Kenny! You bastard!!!
+{% else %}
+    Kenny looks okay --- so far
+{% endif %}
+
+# Simple "For" control
+
+{% for u in users %}
+    
+    {{ u.name }}
+{% else %}
+    No active users.
+{% endfor %}
+
+With a conditional:
+{% for u in users if u.active %}
+
+With a filter:
+{% for u in users|sort('name') %}
+
 ```
 
 ## Check request is admin route
