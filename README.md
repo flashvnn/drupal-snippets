@@ -352,6 +352,44 @@ Get current theme name
 
 ```
 
+### Twig batch for array chunk
+```php
+{% set items = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] %}
+
+<table>
+{% for row in items|batch(3, 'No item') %}
+    <tr>
+        {% for column in row %}
+            <td>{{ column }}</td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+```
+The above example will be rendered as:
+```php
+<table>
+    <tr>
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+    </tr>
+    <tr>
+        <td>d</td>
+        <td>e</td>
+        <td>f</td>
+    </tr>
+    <tr>
+        <td>g</td>
+        <td>No item</td>
+        <td>No item</td>
+    </tr>
+</table>
+```
+
+
+
+
 ## Check request is admin route
 ```php
 if (\Drupal::service('router.admin_context')->isAdminRoute()) {
