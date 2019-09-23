@@ -344,6 +344,12 @@ Get current url
 Get url as array
 {% set url_arr = url('<current>')|render|split('/') %}
 
+Get current theme path
+{% set theme_path = active_theme_path() %}
+
+Get current theme name
+{% set theme_name = active_theme() %}
+
 ```
 
 ## Check request is admin route
