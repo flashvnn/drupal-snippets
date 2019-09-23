@@ -387,6 +387,14 @@ The above example will be rendered as:
 </table>
 ```
 
+### Twig column
+```php
+{% set items = [{ 'fruit' : 'apple'}, {'fruit' : 'orange' }] %}
+
+{% set fruits = items|column('fruit') %}
+
+{# fruits now contains ['apple', 'orange'] #}
+```
 
 
 
