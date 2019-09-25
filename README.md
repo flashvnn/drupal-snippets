@@ -1,3 +1,11 @@
+## Get view route name
+https://www.computerminds.co.uk/drupal-code/drupal-8-views-how-formulate-route-name
+
+```
+view.$view_id.$display_id
+```
+
+
 ## Library working with CSV
 ```
 https://csv.thephpleague.com/
