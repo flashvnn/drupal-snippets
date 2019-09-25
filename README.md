@@ -1,3 +1,8 @@
+## Route nolink
+```
+route:<nolink>
+```
+
 ## Get view route name
 https://www.computerminds.co.uk/drupal-code/drupal-8-views-how-formulate-route-name
 
