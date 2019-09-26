@@ -1,3 +1,13 @@
+## cURL error 60: SSL certificate problem
+```
+Download: http://curl.haxx.se/ca/cacert.pem 
+Save it in a: "cacert.pem"
+Edit php.ini
+curl.cainfo = "[pathtothisfile]\cacert.pem"
+
+```
+
+
 ## Route nolink
 ```
 route:<nolink>
