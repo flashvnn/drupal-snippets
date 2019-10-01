@@ -1,3 +1,11 @@
+## Setting allow Drupal upload javascript file and other extension
+```
+// settings.php
+
+$config['system.file']['allow_insecure_uploads'] = TRUE;
+
+```
+
 ## cURL error 60: SSL certificate problem
 ```
 Download: http://curl.haxx.se/ca/cacert.pem 
