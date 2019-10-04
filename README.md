@@ -1,3 +1,31 @@
+## Add node, paragraph template in module
+```php
+/**
+ * Implements hook_theme().
+ */
+function MODULENAME_theme() {
+    $theme['paragraph__MODULE_NAME__TYPE'] = [
+        'base hook' => 'paragraph'
+    ];
+    return $theme;
+}
+
+/**
+ * Implements HOOK_theme_suggestions_HOOK_alter().
+ */
+function MODULENAME_theme_suggestions_paragraph_alter(&$suggestions, $variables){
+    $entity              = $variables['elements']['#paragraph'];
+    $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+    $type                = $entity->getType();
+
+    if($type == TYPE) {
+        $suggestions[] = 'paragraph__MODULENAME__' . $type;
+        $suggestions[] = 'paragraph__MODULENAME__' . $type . '__' . $sanitized_view_mode;
+    }
+}
+```
+
+
 ## Working with database
 
 https://drupaloutsourcing.com/blog/work-database-drupal-8
