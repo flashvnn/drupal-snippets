@@ -31,134 +31,134 @@ function MODULENAME_theme_suggestions_paragraph_alter(&$suggestions, $variables)
 https://drupaloutsourcing.com/blog/work-database-drupal-8
 ```php
 #  1.The simplest sample with condition
-$query = \ Drupal :: database () -> select `('node_field_data', 'nfd');
-$query-> fields ('nfd', ['uid', 'title']);
-$query-> condition ('nfd.nid', 1);
-$result = $query-> execute'() -> fetchAll ();
+$query = \ Drupal :: database ()->select `('node_field_data', 'nfd');
+$query->fields('nfd', ['uid', 'title']);
+$query->condition('nfd.nid', 1);
+$result = $query->execute()->fetchAll ();
 ```
 ```php
 # 2. Selection of one value
-$query = \ Drupal :: database () -> select ('node_field_data', 'nfd');
-$query-> addField ('nfd', 'title');
-$query-> condition ('nfd.nid', 1); 
-$result = $query-> execute` () -> fetchField ();
+$query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
+$query->addField('nfd', 'title');
+$query->condition('nfd.nid', 1); 
+$result = $query->execute ()->fetchField ();
 ```
 ```php
 # 3. Sampling of the first record
 $query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
-$query-> fields ('nfd', ['nid', 'title']);
-$query-> condition ('nfd.type', 'article');
-$result = $query-> execute`() -> fetchAssoc ();
+$query->fields('nfd', ['nid', 'title']);
+$query->condition('nfd.type', 'article');
+$result = $query->execute()->fetchAssoc ();
 ```
 ```php
 #  4. Selection of the first column as a simple array
-$query = \ Drupal :: database () -> select ('node_field_data', 'nfd');
-$query-> addField ('nfd', 'title');
-$query-> condition ('nfd.type', 'article');
-$result = $query-> execute`() -> fetchCol ();
+$query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
+$query->addField('nfd', 'title');
+$query->condition('nfd.type', 'article');
+$result = $query->execute()->fetchCol ();
 ```
 ```php
 #  5. Combining the tables in the sample
-$query = \ Drupal :: database () -> select ('node_field_data', 'nfd');
-$query-> addField ('nfd', 'title');
-$query-> addField ('ufd', 'name');
-$query-> join ('users_field_data', 'ufd', 'ufd.uid = nfd.uid');
-$query-> condition ('nfd.type', 'article');
-$result = $query-> execute`() -> fetchAll ();
+$query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
+$query->addField('nfd', 'title');
+$query->addField('ufd', 'name');
+$query->join ('users_field_data', 'ufd', 'ufd.uid = nfd.uid');
+$query->condition('nfd.type', 'article');
+$result = $query->execute()->fetchAll ();
 ```
 ```php
 #  6.Selecting a certain range of records
-$query = \ Drupal :: database () -> select ('node_field_data', 'nfd');
-$query-> fields ('nfd', ['nid', 'title']);
-$query-> condition ('nfd.type', 'article');
-$query-> range (0, 10);
-$result = $query-> execute`() -> fetchAll ();
+$query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
+$query->fields('nfd', ['nid', 'title']);
+$query->condition('nfd.type', 'article');
+$query->range (0, 10);
+$result = $query->execute()->fetchAll ();
 ```
 ```php
 # 7. Using the OR conditions in the sample
-$condition_or = new \ Drupal \ Core \ Database \ Query \ Condition ('OR');
-$condition_or-> condition ('nfd.nid', 5);
-$condition_or-> condition ('nfd.nid', 7);
-$query = \ Drupal :: database () -> select ('node_field_data', 'nfd');
-$query-> fields ('nfd', ['nid', 'title']);
-$query-> condition ($ condition_or);
-$result = $query-> execute`() -> fetchAll ();
+$condition_or = new \ Drupal \ Core \ Database \ Query \ Condition('OR');
+$condition_or->condition('nfd.nid', 5);
+$condition_or->condition('nfd.nid', 7);
+$query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
+$query->fields('nfd', ['nid', 'title']);
+$query->condition($ condition_or);
+$result = $query->execute()->fetchAll ();
 ```
 ```php
 #  8. Counting the number of records in the sample
-$query = \ Drupal :: database () -> select ('node_field_data', 'nfd');
-$query-> fields ('nfd', ['nid', 'title']);
-$query-> condition ('nfd.type', 'article');
-$result = $query-> countQuery () -> execute`() -> fetchField ();
+$query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
+$query->fields('nfd', ['nid', 'title']);
+$query->condition('nfd.type', 'article');
+$result = $query->countQuery ()->execute()->fetchField ();
 ```
 ```php
 # 9. Checking values for NULL
-$query = \ Drupal :: database () -> select ('example', 'e');
-$query-> fields ('e');
-$query-> isNull ('e.field_null');
-$query-> isNotNull ('e.field_not_null');
-$result = $query-> execute`() -> fetchAll ();
+$query = \ Drupal :: database ()->select ('example', 'e');
+$query->fields('e');
+$query->isNull ('e.field_null');
+$query->isNotNull ('e.field_not_null');
+$result = $query->execute()->fetchAll ();
 ```
 ```php
 # 10. Application of complex expressions in the sample
-$query = \ Drupal :: database () -> select ('node_field_data', 'nfd');
-$query-> fields ('nfd', ['nid', 'title']);
-$query-> addExpression ("DATE_FORMAT (FROM_UNIXTIME (nfd.created), '% e% b%
+$query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
+$query->fields('nfd', ['nid', 'title']);
+$query->addExpression ("DATE_FORMAT (FROM_UNIXTIME (nfd.created), '% e% b%
 Y')", 'node_created');
-$result = $query-> execute`() -> fetchAll ();
+$result = $query->execute()->fetchAll ();
 ```
 ```php
 #  11. Grouping of sampling records
-$query = \ Drupal :: database () -> select ('node_field_data', 'nfd');
-$query-> addField ('nfd', 'type');
-$query-> addExpression ('COUNT (*)', 'count');
-$query-> groupBy ('nfd.type');
-$result = $query-> execute`() -> fetchAll ();
+$query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
+$query->addField('nfd', 'type');
+$query->addExpression ('COUNT (*)', 'count');
+$query->groupBy ('nfd.type');
+$result = $query->execute()->fetchAll ();
 ```
 ```php
 #  12. Applying complex conditions in a query
-$query = \ Drupal :: database () -> select ('node_field_data', 'nfd');
-$query-> fields ('nfd', ['nid', 'title', 'type']);
-$query-> where ('DAY (FROM_UNIXTIME (nfd.created)) =: day', [': day' => 7]);
-$result = $query-> execute`() -> fetchAll ();
+$query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
+$query->fields('nfd', ['nid', 'title', 'type']);
+$query->where ('DAY (FROM_UNIXTIME (nfd.created)) =: day', [': day' => 7]);
+$result = $query->execute()->fetchAll ();
 ```
 ```php
 # 13. Sort selected records
-$query = \ Drupal :: database () -> select ('node_field_data', 'nfd');
-$query-> fields ('nfd', ['nid', 'title', 'type']);
-$query-> orderBy ('nfd.title');
-$result = $query-> execute`() -> fetchAll ();
+$query = \ Drupal :: database ()->select ('node_field_data', 'nfd');
+$query->fields('nfd', ['nid', 'title', 'type']);
+$query->orderBy ('nfd.title');
+$result = $query->execute()->fetchAll ();
 ```
 ```php
 
 • Update records
 
-$query = \ Drupal :: database () -> update ('example');
-$query-> fields ([
+$query = \ Drupal :: database ()->update ('example');
+$query->fields([
 'field_1' => $ value_1,
 'field_2' => $ value_2,
 'field_3' => $ value_3,
 ]);
-$query-> condition ('field_4', $ value_4);
-$query-> execute `();
+$query->condition('field_4', $ value_4);
+$query->execute `();
 ```
 ```php
 • Using complex expressions when updating
 
-$query = \ Drupal :: database () -> update ('example');
-$query-> expression ('field_1', 'field_1 +: amount', [': amount' => 100]);
-$query-> expression ('field_3', 'field_2');
-$query-> execute`();
+$query = \ Drupal :: database ()->update ('example');
+$query->expression ('field_1', 'field_1 +: amount', [': amount' => 100]);
+$query->expression ('field_3', 'field_2');
+$query->execute();
 ```
 ```php
 • Adding one record
-$query = \ Drupal :: database () -> insert ('example');
-$query-> fields ([
+$query = \ Drupal :: database ()->insert ('example');
+$query->fields([
 'field_1' => $ value_1,
 'field_2' => $ value_2,
 'field_3' => $ value_3,
 ]);
-$query-> execute`();
+$query->execute();
 ```
 ```php
 • Adding multiple entries
@@ -167,26 +167,26 @@ $values = [
 [$value_4, $value_5, $value_6],
 [$value_7, $value_8, $value_9],
 ];
-$query = \ Drupal :: database () -> insert ('example');
-$query-> fields (['field_1', 'field_2', 'field_3']);
+$query = \ Drupal :: database ()->insert ('example');
+$query->fields(['field_1', 'field_2', 'field_3']);
 foreach ($values as $record) {
 $query->values($record);
 }
-$query-> execute`();
+$query->execute();
 ```
 ```php
 • Add or update depending on the availability of the record
-$query = \ Drupal :: database () -> upsert ('example');
-$query-> fields (['field_id', 'field_1']);
-$query-> values ([$ id, $value_1]);
-$query-> key ('field_id');
-$query-> execute`();
+$query = \ Drupal :: database ()->upsert ('example');
+$query->fields(['field_id', 'field_1']);
+$query->values ([$ id, $value_1]);
+$query->key ('field_id');
+$query->execute();
 ```
 ```php
 • Delete
-$query = \ Drupal :: database () -> delete ('example');
-$query-> condition ('field', $value);
-$query-> execute`();
+$query = \ Drupal :: database ()->delete ('example');
+$query->condition('field', $value);
+$query->execute();
 
 
 ```
@@ -705,7 +705,7 @@ file_move(FileInterface $source, 'public://newlocation/demo.jpg');
 ## Get list field of bundle
 ```php
 $entityManager = \Drupal::service('entity_field.manager');
-$fields = $entityManager->getFieldDefinitions($entity_type, $bundle);
+$fields= $entityManager->getFieldDefinitions($entity_type, $bundle);
 ```
 
 ## Get entity bundle of entity type
