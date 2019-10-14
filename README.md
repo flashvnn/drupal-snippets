@@ -40,7 +40,7 @@ function MODULENAME_theme_suggestions_paragraph_alter(&$suggestions, $variables)
 https://drupaloutsourcing.com/blog/work-database-drupal-8
 ```php
 #  1.The simplest sample with condition
-$query = \ Drupal :: database ()->select `('node_field_data', 'nfd');
+$query = \ Drupal :: database ()->select('node_field_data', 'nfd');
 $query->fields('nfd', ['uid', 'title']);
 $query->condition('nfd.nid', 1);
 $result = $query->execute()->fetchAll ();
