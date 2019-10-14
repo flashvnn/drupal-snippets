@@ -1,3 +1,12 @@
+## Remove file from Git after add to gitignore
+
+https://eric.blog/2014/05/11/remove-files-from-git-addingupdating-gitignore/
+
+```
+git rm --cached <file>
+
+```
+
 ## Add node, paragraph template in module
 ```php
 /**
