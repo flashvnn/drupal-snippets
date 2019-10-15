@@ -1,3 +1,12 @@
+## Query for entities using dates in Drupal 8
+https://www.webomelette.com/query-entities-using-dates-drupal-8
+
+
+## Drupal send file/image response 
+
+https://ourcodeworld.com/articles/read/329/how-to-send-a-file-as-response-from-a-controller-in-symfony-3
+
+
 ## Remove file from Git after add to gitignore
 
 https://eric.blog/2014/05/11/remove-files-from-git-addingupdating-gitignore/
