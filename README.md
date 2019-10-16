@@ -1,6 +1,29 @@
-## Query for entities using dates in Drupal 8
-https://www.webomelette.com/query-entities-using-dates-drupal-8
+## Query for entities with language in Drupal 8
+```php
 
+$langcode = \Drupal::languageManager()->getCurrentLanguage(\Drupal\Core\Language\LanguageInterface::TYPE_CONTENT)->getId();
+$query = \Drupal::entityQuery('node');
+$query->condition('status', 1);
+$query->condition('type', 'page');
+$query->condition('langcode', $langcode);
+$ids = $query->execute();
+
+```
+
+## Query for entities using dates in Drupal 8
+https://stefvanlooveren.me/index.php/blog/entityquery-nodes-date-field-drupal-8
+```php
+use Drupal\Core\Datetime\DrupalDateTime;
+
+$weekAgo = new DrupalDateTime('-7 days');
+$weekAgo = $weekAgo->format(\Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+
+$query = \Drupal::entityQuery('node');
+$query->condition('type', 'page');
+$query->condition('status', 1);
+$query->condition('field_date', $weekAgo, '>=');
+$results = $query->execute();
+```
 
 ## Drupal send file/image response 
 
