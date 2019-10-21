@@ -1,5 +1,9 @@
 # Config PHPStorm for Drupal development
 
+## Drupal enabled:
+
+![](https://github.com/flashvnn/drupal-snippets/blob/master/drupal-enable.jpg)
+
 ## Turn off parameter hint
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/2019-10-21_10h02_50.jpg)
 
