@@ -8,3 +8,10 @@
 
 ## Set Drupal code style
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/drupal-code-style.jpg)
+
+
+## PHPStorm meta data
+
+https://www.drupal.org/project/phpstorm_metadata
+
+![](https://www.drupal.org/files/project-images/phpstorm_metadata.png)
