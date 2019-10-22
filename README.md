@@ -1,3 +1,8 @@
+## Command line remove uuid of yml file
+```
+sed -i '/uuid/d' ./*.yml
+```
+
 ## Query for entities with language in Drupal 8
 ```php
 
