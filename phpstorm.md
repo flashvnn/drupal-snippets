@@ -27,4 +27,5 @@ Run git command:
 git config --global core.autocrlf false
 git config --global core.safecrlf false
 ```
+Setting for PHPSTORM
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/2019-10-23_13h23_19.jpg)
