@@ -717,6 +717,16 @@ https://gist.github.com/flashvnn/82f8707b141b6adfee998d9588fac927
 ```
 
 ## Drupal 8 install offline with other language
+
+Issue:
+```
+ [ERROR] Internet: The translation server is offline.
+
+The installer requires to contact the translation server to
+         download a translation file. Check your internet connection and verify that your website can reach the
+         translation server at http://ftp.drupal.org.
+```
+
 ```php
 https://drupal.stackexchange.com/questions/164172/problem-installing-in-local-the-translation-server-is-offline
 Copy translate file to folder sites/default/files/translations
