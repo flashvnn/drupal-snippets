@@ -26,4 +26,5 @@ https://www.drupal.org/project/phpstorm_metadata
 Run git command:
 git config --global core.autocrlf false
 git config --global core.safecrlf false
-
+```
+![](https://github.com/flashvnn/drupal-snippets/blob/master/2019-10-23_13h23_19.jpg)
