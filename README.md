@@ -1,3 +1,16 @@
+## Drupal inline twig template
+https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Element%21InlineTemplate.php/class/InlineTemplate/8.2.x
+
+```php
+$build['hello'] = [
+  '#type' => 'inline_template',
+  '#template' => "{% trans %} Hello {% endtrans %} <strong>{{name}}</strong>",
+  '#context' => [
+    'name' => $name,
+  ],
+];
+```
+
 ## Command line remove uuid of yml file
 ```
 sed -i '/uuid/d' ./*.yml
