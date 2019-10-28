@@ -1,3 +1,17 @@
+## Drupal CSV BOM encoding for languages (Japanese, Hebrew ...)
+https://csv.thephpleague.com/9.0/interoperability/encoding/
+```php
+use League\Csv\Reader;
+
+$reader = Reader::createFromPath('/path/to/my/file.csv', 'r');
+//let's set the output BOM
+$reader->setOutputBOM(Reader::BOM_UTF8);
+//let's convert the incoming data from iso-88959-15 to utf-8
+$reader->addStreamFilter('convert.iconv.ISO-8859-15/UTF-8');
+//BOM detected and adjusted for the output
+echo $reader->getContent();
+```
+
 ## Drupal inline twig template
 https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Element%21InlineTemplate.php/class/InlineTemplate/8.2.x
 
