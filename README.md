@@ -1,3 +1,8 @@
+## Drupal custom field display for REST and JSON API
+
+https://medium.com/@chris.geelhoed/how-to-alter-json-responses-with-drupal-8s-json-api-and-rest-web-service-7671f9c16658
+
+
 ## Drupal override replace by code
 
 http://www.monymirza.com/blog/drupal-8x-hooklibraryinfoalter-usage-example
