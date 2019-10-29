@@ -1,3 +1,30 @@
+## Drupal override replace by code
+
+http://www.monymirza.com/blog/drupal-8x-hooklibraryinfoalter-usage-example
+
+Example library defined:
+```yml
+some-lib:
+  header: true
+  js:
+    js/jsfile.min.js: {  }
+```
+
+Replace with other js file
+
+```php
+function MYMODULE_library_info_alter(&$libraries, $extension) {
+  if (CONDITION) {
+      $alt = [
+        'js/newjsfile.js' => [
+        ]
+      ];
+      $l['some-lib']['js'] = $alt;
+  }
+}
+```
+
+
 ## Drupal replace library of core and other module
 
 https://drupal.stackexchange.com/questions/248131/how-do-i-use-a-jquery-version-different-from-the-default-one-used-by-core
