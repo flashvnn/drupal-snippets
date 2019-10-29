@@ -1,5 +1,5 @@
 ## Add active class to link has parent url
-```
+```js
 // Example current link: example.dev/category/subpage
 // Request add active class for link with url example.dev/category
 
