@@ -1,7 +1,7 @@
 ## Drupal replace library of core and other module
 https://drupal.stackexchange.com/questions/248131/how-do-i-use-a-jquery-version-different-from-the-default-one-used-by-core
 Add your custom jQuery library in your **mytheme.libraries.yml**:
-```
+```yml
 jquery-custom:
   remote: https://github.com/jquery/jquery
   version: "2.2.4"
@@ -13,7 +13,7 @@ jquery-custom:
     js/jquery-2.2.4.min.js: { minified: true, weight: -20 }
 ```
 Then override the core jQuery library in your **mytheme.info.yml**:
-```
+```yml
 libraries-override:
   # Replace an entire library.
   core/jquery: mytheme/jquery-custom
