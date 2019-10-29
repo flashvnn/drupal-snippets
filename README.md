@@ -1,3 +1,52 @@
+## Override all CSS from a library except one file
+
+```yml
+parent/parent-lib: false #removes the whole parent library
+
+parent/parent-lib:
+  css:
+    css-file.css #allows you to bring back in just the file you want.
+
+```
+
+
+## Twig Save render array as variable
+```twig
+{% set variable_name %}
+  {% for item in national_office_address %}
+    {{ item.address_line1 }}
+    {{ item.postal_code }}
+    {{ item.country_code }}
+  {% endfor %}
+{% endset %}
+
+```
+
+## Override a twig template from a module using another module
+```php
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function bootstrap_paragraphs_theme_registry_alter(&$theme_registry) {
+  $module_path = drupal_get_path('module', 'bootstrap_paragraphs');
+
+  // Use the templates in the boostrap_paragraphs module.
+  $theme_registry['paragraph__default'] = $theme_registry['paragraph'];
+  $theme_registry['paragraph__default']['path'] = $module_path . '/templates/paragraph';
+  $theme_registry['paragraph__default']['template'] = 'paragraph--default';
+  $theme_registry['paragraph__accordion'] = $theme_registry['paragraph__default'];
+  $theme_registry['paragraph__accordion']['template'] = 'paragraph--accordion';
+  $theme_registry['paragraph__carousel'] = $theme_registry['paragraph__default'];
+  $theme_registry['paragraph__carousel']['template'] = 'paragraph--carousel';
+  $theme_registry['paragraph__modal'] = $theme_registry['paragraph__default'];
+  $theme_registry['paragraph__modal']['template'] = 'paragraph--modal';
+  $theme_registry['field__paragraph__field_column_content'] = $theme_registry['field'];
+  $theme_registry['field__paragraph__field_column_content']['path'] = $module_path . '/templates/field';
+  $theme_registry['field__paragraph__field_column_content']['template'] = 'field--paragraph--field-column-content';
+}
+```
+
+
 ## Add active class to link has parent url
 ```js
 // Example current link: example.dev/category/subpage
@@ -757,6 +806,12 @@ Get current theme path
 
 Get current theme name
 {% set theme_name = active_theme() %}
+
+Check user permission
+{% if user.hasPermission('administer nodes') %}
+  ... do something
+{% endif %}
+
 
 ```
 
