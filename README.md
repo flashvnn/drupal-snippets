@@ -1,5 +1,7 @@
 ## Drupal replace library of core and other module
+
 https://drupal.stackexchange.com/questions/248131/how-do-i-use-a-jquery-version-different-from-the-default-one-used-by-core
+
 Add your custom jQuery library in your **mytheme.libraries.yml**:
 ```yml
 jquery-custom:
