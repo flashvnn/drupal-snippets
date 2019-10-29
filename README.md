@@ -1,3 +1,10 @@
+## Drupal add/change header
+```php
+use Symfony\Component\HttpFoundation\Response;
+$response = new Response();
+$response->headers->set('Content-Type', 'text/csv; utf-8');
+```
+
 ## Drupal custom field display for REST and JSON API
 
 https://medium.com/@chris.geelhoed/how-to-alter-json-responses-with-drupal-8s-json-api-and-rest-web-service-7671f9c16658
