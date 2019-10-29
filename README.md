@@ -1,3 +1,17 @@
+## Open node preview in a new tab
+```js
+jQuery('#edit-preview').on('mouseover', function(e){
+  jQuery('.node-form').attr('target', '_blank');
+});
+jQuery('#edit-preview').on('mouseout', function(e){
+  jQuery('.node-form').removeAttr('target');
+});
+jQuery('#edit-preview').on('click', function(e){
+  jQuery('.node-form').attr('data-drupal-form-submit-last', '');
+});
+```
+
+
 ## Theming Views in Drupal 8 with custom templates
 
 https://jasoncote.co/theme-drupal-8-view-with-custom-templates
