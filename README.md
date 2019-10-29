@@ -1,3 +1,21 @@
+## Add active class to link has parent url
+```
+// Example current link: example.dev/category/subpage
+// Request add active class for link with url example.dev/category
+
+$(function(){
+    var current = location.pathname;
+    $('#nav li a').each(function(){
+        var $this = $(this);
+        // if the current path is like this link, make it active
+        if($this.attr('href').indexOf(current) !== -1){
+            $this.addClass('active');
+        }
+    })
+})
+```
+
+
 ## Open node preview in a new tab
 ```js
 jQuery('#edit-preview').on('mouseover', function(e){
