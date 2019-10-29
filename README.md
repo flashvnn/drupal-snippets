@@ -10,7 +10,7 @@ $response->headers->set('Content-Type', 'text/csv; utf-8');
 https://medium.com/@chris.geelhoed/how-to-alter-json-responses-with-drupal-8s-json-api-and-rest-web-service-7671f9c16658
 
 
-## Drupal override replace by code
+## Drupal override replace library js css by code
 
 http://www.monymirza.com/blog/drupal-8x-hooklibraryinfoalter-usage-example
 
