@@ -1,3 +1,26 @@
+## Drupal replace library of core and other module
+https://drupal.stackexchange.com/questions/248131/how-do-i-use-a-jquery-version-different-from-the-default-one-used-by-core
+Add your custom jQuery library in your **mytheme.libraries.yml**:
+```
+jquery-custom:
+  remote: https://github.com/jquery/jquery
+  version: "2.2.4"
+  license:
+    name: MIT
+    url: https://github.com/jquery/jquery/blob/2.2.4/LICENSE.txt
+    gpl-compatible: true
+  js:
+    js/jquery-2.2.4.min.js: { minified: true, weight: -20 }
+```
+Then override the core jQuery library in your **mytheme.info.yml**:
+```
+libraries-override:
+  # Replace an entire library.
+  core/jquery: mytheme/jquery-custom
+```
+
+
+
 ## Drupal CSV BOM encoding for languages (Japanese, Hebrew ...)
 https://csv.thephpleague.com/9.0/interoperability/encoding/
 ```php
