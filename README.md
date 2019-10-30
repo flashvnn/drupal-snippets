@@ -2,7 +2,7 @@
 
 https://drupalize.me/blog/201512/speak-http-drupal-httpclient
 
-```
+```php
 // GET 
   $client = \Drupal::httpClient();
   $request = $client->get('http://demo.ckan.org/api/3/action/package_list');
