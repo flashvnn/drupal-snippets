@@ -1,3 +1,46 @@
+## Drupal post. get with Guzzle library
+
+https://drupalize.me/blog/201512/speak-http-drupal-httpclient
+
+```
+// GET 
+  $client = \Drupal::httpClient();
+  $request = $client->get('http://demo.ckan.org/api/3/action/package_list');
+  $response = $request->getBody();
+
+// POST
+  $client = \Drupal::httpClient();
+  $request = $client->post('http://demo.ckan.org/api/3/action/group_list', [
+    'json' => [
+      'id'=> 'data-explorer'
+    ]
+  ]);
+  $response = json_decode($request->getBody());
+
+// HTTP basic authentication
+  $client = \Drupal::httpClient();
+  $request = $client->get('https://api.github.com/user', [
+    'auth' => ['username','password']
+  ]);
+  $response = $request->getBody();
+
+// Exception handling
+
+  $client = \Drupal::httpClient();
+
+  try {
+    $response = $client->get('http://demo.ckan.org/api/3/action/package_list');
+    $data = $response->getBody();
+  }
+  catch (RequestException $e) {
+    watchdog_exception('my_module', $e->getMessage());
+  }
+
+
+```
+
+
+
 ## Override all CSS from a library except one file
 
 ```yml
