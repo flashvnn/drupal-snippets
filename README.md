@@ -1,3 +1,9 @@
+## Drupal 8 - Creating a custom redirect using Event Subscriber
+
+https://joehuggans.co.uk/article/drupal-8-creating-custom-redirect-using-event-subscriber
+
+
+
 ## Drupal handler request event
 
 https://www.chapterthree.com/blog/how-to-register-event-subscriber-drupal8
