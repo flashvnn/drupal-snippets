@@ -33,7 +33,7 @@ https://joehuggans.co.uk/article/drupal-8-creating-custom-redirect-using-event-s
 
 
 
-## Drupal handler request event
+## Drupal handler response event
 
 https://www.chapterthree.com/blog/how-to-register-event-subscriber-drupal8
 
