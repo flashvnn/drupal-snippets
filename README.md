@@ -1,3 +1,18 @@
+## Drupal show page not found 404 and page access AccessDenie
+
+```
+// 404
+if($condition){
+  throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
+}
+
+// 403
+if($condition){
+  throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+}
+
+```
+
 ## Drupal 8 - Creating a custom redirect using Event Subscriber
 
 https://joehuggans.co.uk/article/drupal-8-creating-custom-redirect-using-event-subscriber
