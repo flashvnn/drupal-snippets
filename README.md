@@ -6,9 +6,6 @@
 
 // Current path
 $current_path = \Drupal::service('path.current')->getPath()
-
-
-
 ```
 
 
@@ -27,10 +24,9 @@ if($condition){
 
 ```
 
-## Drupal 8 - Creating a custom redirect using Event Subscriber
+## Drupal 8 - Creating handler request event and custom redirect using Event Subscriber
 
 https://joehuggans.co.uk/article/drupal-8-creating-custom-redirect-using-event-subscriber
-
 
 
 ## Drupal handler response event
