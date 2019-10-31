@@ -1,3 +1,91 @@
+## Drupal handler request event
+
+https://www.chapterthree.com/blog/how-to-register-event-subscriber-drupal8
+
+Structure for the example module.
+
+```
+my_event_subscriber/
+  - my_event_subscriber.info.yml
+  - my_event_subscriber.services.yml
+  - src/
+    - EventSubscriber/
+      - MyEventSubscriber.php
+
+```
+
+File: my_event_subscriber.info.yml
+
+```yml
+name: Register an Event Subscriber
+type: module
+description: 'Example: How to Register an Event Subscriber in Drupal 8'
+core: 8.x
+package: Other
+```
+
+File: my_event_subscriber.services.yml
+```yml
+services:
+  my_event_subscriber:
+    class: '\Drupal\my_event_subscriber\EventSubscriber\MyEventSubscriber'
+    tags:
+      - { name: 'event_subscriber' }
+```
+
+File: src/EventSubscriber/MyEventSubscriber.php
+
+```php
+/**
+ * @file
+ * Contains \Drupal\my_event_subscriber\EventSubscriber\MyEventSubscriber.
+ */
+
+namespace Drupal\my_event_subscriber\EventSubscriber;
+
+use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+/**
+ * Event Subscriber MyEventSubscriber.
+ */
+class MyEventSubscriber implements EventSubscriberInterface {
+
+  /**
+   * Code that should be triggered on event specified 
+   */
+  public function onRespond(FilterResponseEvent $event) {
+    // The RESPONSE event occurs once a response was created for replying to a request.
+    // For example you could override or add extra HTTP headers in here
+    $response = $event->getResponse();
+    $response->headers->set('X-Custom-Header', 'MyValue');
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getSubscribedEvents() {
+    // For this example I am using KernelEvents constants (see below a full list).
+    $events[KernelEvents::RESPONSE][] = ['onRespond'];
+    return $events;
+  }
+
+}
+```
+
+Here is a list of KernelEvents constants:
+```php
+KernelEvents::CONTROLLER; // The CONTROLLER event occurs once a controller was found for handling a request.
+KernelEvents::EXCEPTION; // The EXCEPTION event occurs when an uncaught exception appears.
+KernelEvents::FINISH_REQUEST; //The FINISH_REQUEST event occurs when a response was generated for a request.
+KernelEvents::REQUEST; // The REQUEST event occurs at the very beginning of request dispatching.
+KernelEvents::RESPONSE; // The RESPONSE event occurs once a response was created for replying to a request.
+KernelEvents::TERMINATE; // The TERMINATE event occurs once a response was sent.
+KernelEvents::VIEW; // The VIEW event occurs when the return value of a controller is not a Response instance.
+```
+
+
 ## Drupal post. get with Guzzle library
 
 https://drupalize.me/blog/201512/speak-http-drupal-httpclient
