@@ -1,3 +1,17 @@
+## Drupal route examples
+
+```php
+// Get current route name
+\Drupal::routeMatch()->getRouteName(); //
+
+// Current path
+$current_path = \Drupal::service('path.current')->getPath()
+
+
+
+```
+
+
 ## Drupal show page not found 404 and page access AccessDenie
 
 ```
