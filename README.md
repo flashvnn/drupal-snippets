@@ -886,8 +886,11 @@ https://developpeur-drupal.com/en/article/theme-preprocess-and-suggestions-drupa
 
 ## Twig function for Drupal 8
 https://danielmg.org/php/twig-cheatsheet.html
+
 https://www.drupal.org/docs/8/theming/twig/functions-in-twig-templates
+
 https://www.drupal.org/docs/8/modules/twig-tweak/cheat-sheet
+
 
 ```php
 # Base Syntax
