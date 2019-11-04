@@ -29,3 +29,10 @@ git config --global core.safecrlf false
 ```
 Setting for PHPSTORM
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/2019-10-23_13h23_19.jpg)
+
+## PHPCS with PHPSTORM
+
+![](https://github.com/flashvnn/drupal-snippets/blob/master/phpcs-1.jpg)
+![](https://github.com/flashvnn/drupal-snippets/blob/master/phpcs-2.jpg)
+![](https://github.com/flashvnn/drupal-snippets/blob/master/phpcs-3.jpg)
+![](https://github.com/flashvnn/drupal-snippets/blob/master/phpcs4.jpg)
