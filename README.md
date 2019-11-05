@@ -1,3 +1,13 @@
+## Drupal check current page is node detail page
+```php
+
+  $route_match = \Drupal::routeMatch();
+  if ($route_match->getRouteName() == 'entity.node.canonical') {
+    return true;
+  }
+
+```
+
 ## Drupal route examples
 
 ```php
