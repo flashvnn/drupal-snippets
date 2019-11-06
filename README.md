@@ -294,10 +294,7 @@ Replace with other js file
 ```php
 function MYMODULE_library_info_alter(&$libraries, $extension) {
   if (CONDITION) {
-      $alt = [
-        'js/newjsfile.js' => [
-        ]
-      ];
+      $alt = ['/' . drupal_get_path('module', 'MYMODULE') . '/js/newjsfile.js' => []];
       $l['some-lib']['js'] = $alt;
   }
 }
