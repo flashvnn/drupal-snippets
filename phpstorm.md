@@ -36,3 +36,28 @@ Setting for PHPSTORM
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/phpcs-2.jpg)
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/phpcs-3.jpg)
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/phpcs4.jpg)
+
+## Use XDebug with PHPStorm
+
+Config XDebug in php.ini
+
+```ini
+; config for xdebug
+[xdebug]
+zend_extension="D:\DevDesktop\php7_1\php_xdebug-2.5.5-7.1-vc14.dll" ; Path to php_xdebug*.dll
+xdebug.profiler_enable = 0
+xdebug.profiler_output_dir = "D:\DevDesktop\temp"
+xdebug.remote_enable=1
+xdebug.remote_host=localhost
+xdebug.remote_port=9000
+xdebug.remote_handler=dbgp
+xdebug.max_nesting_level=500
+xdebug.idekey=PHPSTORM
+```
+
+Verify XDebug enabled
+![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug-verify.jpg)
+![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug-config-0.jpg)
+![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebugconfig-1.jpg)
+![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug-config-2.jpg)
+
