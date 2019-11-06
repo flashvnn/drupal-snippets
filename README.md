@@ -12,10 +12,13 @@
 
 ```php
 // Get current route name
-\Drupal::routeMatch()->getRouteName(); //
+\Drupal::routeMatch()->getRouteName(); 
+// Node detail: entity.node.canonical
+// Node preview: entity.node.preview
 
 // Current path
-$current_path = \Drupal::service('path.current')->getPath()
+$current_path = \Drupal::service('path.current')->getPath();
+// /about
 ```
 
 
