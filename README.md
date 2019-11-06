@@ -1,3 +1,92 @@
+## Drupal entity Query example
+```php
+// Common use of query
+// user
+$query = \Drupal::entityQuery('user'); 
+// node
+$query = \Drupal::entityQuery('node');
+// taxonomy
+$query = \Drupal::entityQuery('taxonomy_term');
+
+// Load all active users
+$query = \Drupal::entityQuery('user'); 
+$query->condition('status', 1); 
+$users_ids = $query->execute(); 
+$users = User::loadMultiple($users_ids);
+
+// Load with multiple condition
+$query = \Drupal::entityQuery('user');
+$query->condition('field_interests', $interests, 'IN');
+$query->condition('field_birthday', $min_date->format('Y-m-d'), '<');
+$query->condition('field_birthday', $max_date->format('Y-m-d'), '>');
+$profils_similaires = $query->execute(); 
+$users = User::loadMultiple($profils_similaires);
+
+// Advanced usage with OR condition
+$query = \Drupal::entityQuery('user');
+ 
+$condition_or = $query->orConditionGroup();
+$condition_or->condition('field_pinned',1);
+$condition_or->condition('field_interests', $interests, 'IN');
+ 
+$query->condition($condition_or);
+$profils_similaires = $query->execute();
+$users = User::loadMultiple($profils_similaires);
+
+// AND OR Conditons
+$query = \Drupal::entityQuery('user');
+ 
+$condition_or = $query->orConditionGroup();
+$condition_or->condition('field_pinned',1);
+ 
+$condition_and = $query->andConditionGroup();
+ 
+$condition_and->condition('field_interests', $interests, 'IN');
+$condition_and->condition('field_birthday', $min_date->format('Y-m-d'), '<');
+$condition_and->condition('field_birthday', $max_date->format('Y-m-d'), '>');
+ 
+$condition_or->condition($condition_and);
+$query->condition($condition_or);
+$profils_similaires = $query->execute();
+$users = User::loadMultiple($profils_similaires);
+
+
+// Load node by type = product
+$query = \Drupal::entityQuery('node'); 
+$query->condition('type', 'produit');
+// Condition with user id=1
+$query->condition('uid', 1);
+// zipcode LIKE 12%
+$query->condition('field_adresse_zipcode', substr($code_postal, 0, 2).'%', 'LIKE');
+$node_ids = $query->execute(); 
+$nodes = Node::loadMultiple($node_ids);
+
+
+// Query range
+
+// 20 résultats sans en passer aucun (0)
+$query->range(0, 20);
+ 
+// 20 résultats en passant les 10 premiers (0)
+$query->range(10, 20);
+
+
+// Query sort
+$query->sort('created', 'ASC'); //ASC or DESC
+
+// Field sort
+$query->sort('field_birthday', 'ASC');
+
+// count
+
+$query = \Drupal::entityQuery('node');
+$query->condition('type', 'produit');
+$nb_resultats = $query->count()->execute();
+
+
+```
+
+
 ## Load all taxonomy of category
 ```php
 // Use load tree
