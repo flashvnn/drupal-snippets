@@ -540,8 +540,19 @@ function MODULENAME_theme_suggestions_paragraph_alter(&$suggestions, $variables)
 }
 ```
 
-
 ## Working with database
+
+```php
+// simple query
+$database = \Drupal::database();
+$query = $database->query("SELECT id, example FROM {mytable}");
+$result = $query->fetchAll();
+
+// query with place holder
+$query = $database->query("SELECT id, example FROM {mytable} WHERE created > :created", [
+  ':created' => REQUEST_TIME - 3600,
+]);
+```
 
 https://drupaloutsourcing.com/blog/work-database-drupal-8
 ```php
