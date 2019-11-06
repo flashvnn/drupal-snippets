@@ -1310,6 +1310,33 @@ $request->query->has(static::AJAX_FORM_REQUEST))
 
 ```
 
+## Config php.ini setting for local development
+```ini
+max_execution_time = 300
+max_input_time = 300
+max_input_vars = 100000
+memory_limit = 2048M
+post_max_size = 48M
+upload_max_filesize = 48M
+```
+## Config mysql.ini for development
+```ini
+symbolic-links=0
+innodb_file_per_table = 1
+thread_concurrency = 8
+query_cache_size = 32M
+thread_cache_size = 8
+myisam_sort_buffer_size = 64M
+read_rnd_buffer_size = 16M
+read_buffer_size = 8M
+sort_buffer_size = 8M
+table_open_cache = 512
+max_allowed_packet = 32M
+key_buffer_size = 384M
+```
+
+
+
 ## Install Acquia Dev Desktop
 Install Microsoft Visual C++ 2010 Redistributable Package before run Acquia Dev Desktop
 ```
