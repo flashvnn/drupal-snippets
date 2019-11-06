@@ -1,3 +1,25 @@
+## Load all taxonomy of category
+```php
+// Use load tree
+$vid = 'vocabulary_name';
+$terms =\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree($vid);
+foreach ($terms as $term) {
+ $term_data[] = array(
+  'id' => $term->tid,
+  'name' => $term->name
+ );
+}
+
+// Use entity query with sort condition
+$vocabulary_name = 'YOUR_VOCABULARY_NAME'; //name of your vocabulary
+$query = \Drupal::entityQuery('taxonomy_term');
+$query->condition('vid', $vocabulary_name);
+$query->sort('weight');
+$tids = $query->execute();
+$terms = Term::loadMultiple($tids);
+```
+
+
 ## Drupal check current page is node detail page
 ```php
 
