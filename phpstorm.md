@@ -60,4 +60,4 @@ Verify XDebug enabled
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug-config-0.jpg)
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebugconfig-1.jpg)
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug-config-2.jpg)
-
+![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug-config-3.jpg)
