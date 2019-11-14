@@ -1,3 +1,21 @@
+## Call Drupal dialog off canvas with Javascript
+```js
+ var ajax = new Drupal.Ajax(false, false, {
+   url: '/path-to-drupal-page',
+   submit: { // custom post data
+     dialogOptions: {
+       width: '40%',
+       dialogClass: 'ui-dialog-off-canvas line-link-off-canvas'
+     },
+     yourdata: {name:'OffCanvas'}
+   },
+   dialogType : 'dialog.off_canvas'
+ });
+ ajax.execute().done(function () {});
+
+```
+
+
 ## Drupal entity Query example
 ```php
 // Common use of query
