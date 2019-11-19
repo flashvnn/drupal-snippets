@@ -326,31 +326,6 @@ parent/parent-lib:
 
 ```
 
-## Override a twig template from a module using another module
-```php
-/**
- * Implements hook_theme_registry_alter().
- */
-function bootstrap_paragraphs_theme_registry_alter(&$theme_registry) {
-  $module_path = drupal_get_path('module', 'bootstrap_paragraphs');
-
-  // Use the templates in the boostrap_paragraphs module.
-  $theme_registry['paragraph__default'] = $theme_registry['paragraph'];
-  $theme_registry['paragraph__default']['path'] = $module_path . '/templates/paragraph';
-  $theme_registry['paragraph__default']['template'] = 'paragraph--default';
-  $theme_registry['paragraph__accordion'] = $theme_registry['paragraph__default'];
-  $theme_registry['paragraph__accordion']['template'] = 'paragraph--accordion';
-  $theme_registry['paragraph__carousel'] = $theme_registry['paragraph__default'];
-  $theme_registry['paragraph__carousel']['template'] = 'paragraph--carousel';
-  $theme_registry['paragraph__modal'] = $theme_registry['paragraph__default'];
-  $theme_registry['paragraph__modal']['template'] = 'paragraph--modal';
-  $theme_registry['field__paragraph__field_column_content'] = $theme_registry['field'];
-  $theme_registry['field__paragraph__field_column_content']['path'] = $module_path . '/templates/field';
-  $theme_registry['field__paragraph__field_column_content']['template'] = 'field--paragraph--field-column-content';
-}
-```
-
-
 ## Add active class to link has parent url
 ```js
 // Example current link: example.dev/category/subpage
