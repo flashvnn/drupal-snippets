@@ -1,3 +1,43 @@
+## Drupal disable viewsroll top 
+
+Disable for all view with javascript
+
+```js
+Drupal.behaviors.viewsScrollOff = {
+    attach: function () {
+ 
+      /* Views Ajax Content Load Autoscroll Feature Disabled */
+      Drupal.AjaxCommands.prototype.viewsScrollTop = null;
+    }
+  };
+
+```
+
+Disable for special view id
+
+```php
+
+/**
+ * Implement hook_views_ajax_data_alter().
+ */
+function YOURMODULE_views_ajax_data_alter(&$commands, $view) {
+  // Remove scroll to top behaviour from views ajax if using load_more pager.
+  // Check view id
+  if($view->id() == 'my_view_id'){
+    foreach ($commands as $key => $command) {
+      if ($command['command'] == 'viewsScrollTop') {
+        unset($commands[$key]);
+        break;
+      }
+    }
+  }
+ 
+}
+
+```
+
+
+
 ## Drupal sort array by weight
 ```php
 $tests = [
@@ -1352,6 +1392,15 @@ function MODULE_form_views_exposed_form_alter(&$form, FormStateInterface $form_s
 
 }
 ```
+
+## Check if request is ajax request
+```php
+
+$request = \Drupal::request();
+$is_ajax = $request->isXmlHttpRequest();
+
+```
+
 
 ## Check request is AJAX Form Request
 ```php
