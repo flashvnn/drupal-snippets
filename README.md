@@ -1,3 +1,59 @@
+## Drupal sort array by weight
+```php
+$tests = [
+  [
+    'name' => 'Item 2',
+    'weight' => 2,
+  ],
+  [
+    'name' => 'Item 1',
+    'weight' => 1,
+  ],
+];
+uasort($tests, ['Drupal\Component\Utility\SortArray', 'sortByWeightElement']);
+var_dump($tests);
+// value of tests
+$tests = [
+  [
+    'name' => 'Item 1',
+    'weight' => 1,
+  ],
+  [
+    'name' => 'Item 2',
+    'weight' => 2,
+  ],
+];
+
+```
+
+## Drupal sort array by weight property, used in Drupal form 
+```php
+
+$tests = [
+  [
+    'name' => 'Item 2',
+    '#weight' => 2,
+  ],
+  [
+    'name' => 'Item 1',
+    'weight' => 1,
+  ],
+];
+uasort($tests, ['Drupal\Component\Utility\SortArray', 'sortByWeightProperty']);
+var_dump($tests);
+// value of tests
+$tests = [
+  [
+    'name' => 'Item 1',
+    '#weight' => 1,
+  ],
+  [
+    'name' => 'Item 2',
+    '#weight' => 2,
+  ],
+];
+```
+
 ## Call Drupal dialog off canvas with Javascript
 ```js
  var ajax = new Drupal.Ajax(false, false, {
