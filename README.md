@@ -17,23 +17,17 @@ Disable for special view id
 
 ```php
 
-/**
- * Implement hook_views_ajax_data_alter().
- */
-function YOURMODULE_views_ajax_data_alter(&$commands, $view) {
-  // Remove scroll to top behaviour from views ajax if using load_more pager.
-  // Check view id
-  if($view->id() == 'my_view_id'){
-    foreach ($commands as $key => $command) {
-      if ($command['command'] == 'viewsScrollTop') {
-        unset($commands[$key]);
-        break;
+function YOURMODULE_ajax_render_alter(array &$data) {
+  foreach ($data as $key => &$command) {
+    if ($command['command'] === 'viewsScrollTop') {
+      $data_json = Json::encode($data);
+      if (strpos($data_json, 'YOUR_VIEW_ID') !== FALSE) {
+        unset($data[$key]);
       }
+      break;
     }
   }
- 
 }
-
 ```
 
 
