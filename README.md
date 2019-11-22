@@ -1,3 +1,8 @@
+## Fix drupalSettings load error
+
+Check missing closed div in page--*.html.twig
+
+
 ## Drupal disable viewsroll top 
 
 Disable for all view with javascript
