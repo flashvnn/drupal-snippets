@@ -1,3 +1,22 @@
+## Drupal load all node view mode
+```php
+  $entity_type = 'node';
+  $view_modes_data['default'] = $this->t('Drupal view default');
+
+  $view_modes = \Drupal::entityQuery('entity_view_mode')
+    ->condition('targetEntityType', $entity_type)
+    ->execute();
+  foreach ($view_modes as $view_mode) {
+    $view_mode_entity = \Drupal::entityTypeManager()
+      ->getStorage('entity_view_mode')
+      ->load($view_mode);
+    try {
+      $id = explode('.', $view_mode)[1];
+      $view_modes_data[$id] = $view_mode_entity->label();
+    } catch (\Exception $e) {}
+  }
+```
+
 ## Drupal load all blocks
 ```php
 $blockManager = \Drupal::service('plugin.manager.block');
