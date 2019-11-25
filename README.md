@@ -1,3 +1,22 @@
+## Drupal load all blocks
+```php
+$blockManager = \Drupal::service('plugin.manager.block');
+
+$contextRepository = \Drupal::service('context.repository');
+
+// Get blocks definition
+
+$definitions = $blockManager->getDefinitionsForContexts($contextRepository->getAvailableContexts());
+$blocks_data = [];
+foreach ($definitions as $block_id => $block) {
+  $block_id !== 'broken' && $blocks_data[$block_id] = $block['admin_label'];
+}
+
+$print_r($blocks_data);
+
+```
+
+
 ## Fix drupalSettings load error
 
 Check missing closed div in page--*.html.twig
