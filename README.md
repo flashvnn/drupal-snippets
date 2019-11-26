@@ -1,3 +1,18 @@
+## Drupal display iframe with form api
+
+```php
+
+    $form['preview'] = [
+      '#type' => 'inline_template',
+      '#template' => '<iframe width="100%" height="315" src="{{url}}" frameborder="0" allowfullscreen></iframe>',
+      '#context' => [
+        'url' => 'https://www.youtube.com/embed/7TF00hJI78Y',
+      ],
+    ];
+
+```
+
+
 ## Drupal load all node view mode
 ```php
   $entity_type = 'node';
