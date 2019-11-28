@@ -1,3 +1,31 @@
+## Render exposed filter of a views in Drupal 8
+
+http://www.drupalsharing.com/code-snippets/render-exposed-filter-views-drupal-8
+
+```php
+$build = [];
+$view_id = 'search';
+$display_id = 'block';
+$view = Views::getView($view_id);
+if ($view) {
+  $view->setDisplay($display_id);
+  $view->initHandlers();
+  $form_state = (new FormState())
+    ->setStorage([
+      'view' => $view,
+      'display' => &$view->display_handler->display,
+      'rerender' => TRUE,
+    ])
+    ->setMethod('get')
+    ->setAlwaysProcess()
+    ->disableRedirect();
+  $form_state->set('rerender', NULL);
+  $form_state->setCached(FALSE);
+  $build[] = $this->formBuilder->buildForm('\Drupal\views\Form\ViewsExposedForm', $form_state);
+
+```
+
+
 ## Drupal display iframe with form api
 
 ```php
