@@ -1,3 +1,12 @@
+## Drupal using hidden field it can update value by javascript
+```php
+
+ $form['hidden_data'] = ['#type' => 'hidden', '#default_value' => 'text'];
+
+```
+
+
+
 ## Render exposed filter of a views in Drupal 8
 
 http://www.drupalsharing.com/code-snippets/render-exposed-filter-views-drupal-8
