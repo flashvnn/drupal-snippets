@@ -1,3 +1,76 @@
+## Description in radio button option value
+```php
+
+$pane_form['subscription_payment_type'] = [
+      '#type' => 'radios',
+      '#title_display' => 'hidden',
+      '#options' => [
+        'digital' => $this->t('Digital signature'),
+        'paper' => $this->t('Paper form'),
+      ],
+      'digital' => [
+        '#description' => $this->t('(E-identification or BankID)'),
+      ],
+      '#default_value' => 'digital',
+    ];
+
+```
+
+
+## How to use entity_autcomplete Field #type in drupal 8
+```php
+
+// Autocomplete for node
+$form['node'] = array(
+  '#type' => 'entity_autocomplete',
+  '#title' => $this->t('Entity autocomplete (using core module "EntityAutocomplete")'),
+  '#target_type' => 'node',
+  '#selection_settings' => array(
+    'target_bundles' => array('article'),
+  ),
+);
+
+// Autocomplete for user
+$form['field_patient'] = array(
+      '#type' => 'entity_autocomplete',
+      '#title' => $this->t('Patients'),
+      '#target_type' => 'user',
+      '#selection_settings' => [
+        'include_anonymous' => FALSE,
+        'filter' => ['role' => ['patient' => 'patient']],
+      ],
+      '#required' => TRUE,
+      '#default_value' => $node ? $node->field_patient->entity : NULL,
+    );
+```
+
+## Render exposed filter of a views in Drupal 8
+
+http://www.drupalsharing.com/code-snippets/render-exposed-filter-views-drupal-8
+
+```php
+$build = [];
+$view_id = 'search';
+$display_id = 'block';
+$view = Views::getView($view_id);
+if ($view) {
+  $view->setDisplay($display_id);
+  $view->initHandlers();
+  $form_state = (new FormState())
+    ->setStorage([
+      'view' => $view,
+      'display' => &$view->display_handler->display,
+      'rerender' => TRUE,
+    ])
+    ->setMethod('get')
+    ->setAlwaysProcess()
+    ->disableRedirect();
+  $form_state->set('rerender', NULL);
+  $form_state->setCached(FALSE);
+  $build[] = $this->formBuilder->buildForm('\Drupal\views\Form\ViewsExposedForm', $form_state);
+
+```
+
 ## Drupal using hidden field it can update value by javascript
 ```php
 
