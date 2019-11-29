@@ -1,3 +1,11 @@
+## Drupal display date format with timezone
+```php
+$node = Node::load(2100);
+$start_date = $node->field_date->start_date;
+$formatted = \Drupal::service('date.formatter')->format($start_date->getTimestamp(), 'custom', 'Y-m-d H:i:s P', drupal_get_user_timezone());
+```
+
+
 ## Description in radio button option value
 ```php
 
