@@ -1,3 +1,15 @@
+## Drupal sort entity, config entity has property weight
+```php
+   
+// ComponentCategory is Config Entity.
+
+$categories = ComponentCategory::loadMultiple();
+uasort($categories, [ComponentCategory::class, 'sort']);
+
+
+```
+
+
 ## Drupal display date format with timezone
 ```php
 $node = Node::load(2100);
