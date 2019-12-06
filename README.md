@@ -1,3 +1,100 @@
+## Drupal schema type for config 
+
+https://www.drupal.org/docs/8/api/configuration-api/configuration-schemametadata#types
+
+```yml
+# Undefined type used by the system to assign to elements at any level where
+# configuration schema is not defined. Using explicitly has the same effect as
+# not defining schema, so there is no point in doing that.
+undefined:
+  label: 'Undefined'
+  class: '\Drupal\Core\Config\Schema\Undefined'
+
+# Explicit type to use when no data typing is possible. Instead of using this
+# type, we strongly suggest you use configuration structures that can be
+# described with other structural elements of schema, and describe your schema
+# with those elements.
+ignore:
+  label: 'Ignore'
+  class: '\Drupal\Core\Config\Schema\Ignore'
+
+# Basic scalar data types from typed data.
+boolean:
+  label: 'Boolean'
+  class: '\Drupal\Core\TypedData\Plugin\DataType\BooleanData'
+email:
+  label: 'Email'
+  class: '\Drupal\Core\TypedData\Plugin\DataType\Email'
+integer:
+  label: 'Integer'
+  class: '\Drupal\Core\TypedData\Plugin\DataType\IntegerData'
+float:
+  label: 'Float'
+  class: '\Drupal\Core\TypedData\Plugin\DataType\FloatData'
+string:
+  label: 'String'
+  class: '\Drupal\Core\TypedData\Plugin\DataType\StringData'
+uri:
+  label: 'Uri'
+  class: '\Drupal\Core\TypedData\Plugin\DataType\Uri'
+
+
+# Container data types for lists with known and unknown keys.
+mapping:
+  label: Mapping
+  class: '\Drupal\Core\Config\Schema\Mapping'
+  definition_class: '\Drupal\Core\TypedData\MapDataDefinition'
+sequence:
+  label: Sequence
+  class: '\Drupal\Core\Config\Schema\Sequence'
+  definition_class: '\Drupal\Core\TypedData\ListDataDefinition'
+
+
+# Human readable string that must be plain text and editable with a text field.
+label:
+  type: string
+  label: 'Label'
+  translatable: true
+
+# Internal Drupal path
+path:
+  type: string
+  label: 'Path'
+
+# Human readable string that can contain multiple lines of text or HTML.
+text:
+  type: string
+  label: 'Text'
+  translatable: true
+
+# PHP Date format string that is translatable.
+date_format:
+  type: string
+  label: 'Date format'
+  translatable: true
+  translation context: 'PHP date format'
+
+# HTML color value.
+color_hex:
+  type: string
+  label: 'Color'
+  
+  
+   Mail text with subject and body parts.
+mail:
+  type: mapping
+  label: 'Mail'
+  mapping:
+    subject:
+      type: label
+      label: 'Subject'
+    body:
+      type: text
+      label: 'Body'
+      
+      
+```
+
 ## Drupal sort entity, config entity has property weight
 ```php
    
