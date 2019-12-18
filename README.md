@@ -1,7 +1,8 @@
 ## Debug email with Drupal
 
-Install module: drupal.org/project/devel
-Install module: drupal.org/project/devel_mail_logger
+Install module: https://www.drupal.org/project/devel
+
+Install module: https://www.drupal.org/project/devel_mail_logger
 
 Add setting to file sites/default/settings.php
 
