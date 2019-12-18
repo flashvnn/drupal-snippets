@@ -1,3 +1,18 @@
+## Debug email with Drupal
+
+Install module: drupal.org/project/devel
+Install module: drupal.org/project/devel_mail_logger
+
+Add setting to file sites/default/settings.php
+
+```php
+
+$config['system.mail']['interface']['default'] = 'devel_mail_logger';
+
+```
+
+View email logged with url: admin/reports/devel_mail_logger
+
 ## Drupal schema type for config 
 
 https://www.drupal.org/docs/8/api/configuration-api/configuration-schemametadata#types
