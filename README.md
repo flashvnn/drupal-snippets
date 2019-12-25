@@ -1,3 +1,31 @@
+## Safe url data transfer from Javascript to Drupal
+```js
+  Drupal.safe_encode = function(element) {
+    var encode = encodeURIComponent(JSON.stringify(element));
+    var base64 = Base64.encode(encode);
+    base64 = base64.replace('/', '_');
+    base64 = base64.replace('+', '-');
+    return base64;
+  };
+  var base64 = Drupal.safe_encode(object);
+  var url = Drupal.url('module-url?component_data='+ base64);
+```
+
+```php
+
+function getComponentData() {
+    $component_data = \Drupal::request()->query->get('component_data');
+    $payload = str_replace('_', '/', $component_data);
+    $payload = str_replace('-', '+', $payload);
+    $payload = base64_decode($payload);
+    $json = urldecode($payload);
+    $json = Json::decode($json);
+    return $json;
+}
+  
+```
+
+
 ## Debug email with Drupal
 
 Install module: https://www.drupal.org/project/devel
