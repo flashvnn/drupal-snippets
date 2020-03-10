@@ -1,3 +1,9 @@
+## Override Drupal controller
+```
+// https://steemit.com/drupal/@develcuy/adding-custom-contextual-links-to-a-views-page-in-drupal-8
+
+```
+
 ## Safe url data transfer from Javascript to Drupal
 ```js
   Drupal.safe_encode = function(element) {
