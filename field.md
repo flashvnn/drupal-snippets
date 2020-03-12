@@ -3,6 +3,7 @@
 ### Get all fields of content type
 
 ```php
+<?php
 $entity_type = 'node';
 $bundle = 'page';
 
@@ -14,6 +15,7 @@ $fields = $entityManager->getFieldDefinitions($entity_type, $bundle);
 ### Get field settings
 
 ```php
+<?php
 $image = $fields['field_image_select'];
 $settings = $image->getSettings();
 
@@ -51,6 +53,8 @@ array (
 ### Get field storage
 
 ```php
+<?php
+
 $storage = $image->getFieldStorageDefinition();
 
 Drupal\field\Entity\FieldStorageConfig::__set_state(array(
