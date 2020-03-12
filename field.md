@@ -47,3 +47,83 @@ array (
   'display_default' => false,
 )
 ```
+
+### Get field storage
+
+```php
+$storage = $image->getFieldStorageDefinition();
+
+Drupal\field\Entity\FieldStorageConfig::__set_state(array(
+   'id' => 'node.field_image_select',
+   'field_name' => 'field_image_select',
+   'entity_type' => 'node',
+   'type' => 'image',
+   'module' => 'image',
+   'settings' => 
+  array (
+    'uri_scheme' => 'public',
+    'default_image' => 
+    array (
+      'uuid' => '',
+      'alt' => '',
+      'title' => '',
+      'width' => NULL,
+      'height' => NULL,
+    ),
+    'target_type' => 'file',
+    'display_field' => false,
+    'display_default' => false,
+  ),
+   'cardinality' => 1,
+   'translatable' => true,
+   'locked' => false,
+   'persist_with_no_fields' => false,
+   'custom_storage' => false,
+   'indexes' => 
+  array (
+  ),
+   'deleted' => false,
+   'schema' => NULL,
+   'propertyDefinitions' => NULL,
+   'originalId' => 'node.field_image_select',
+   'status' => true,
+   'uuid' => 'e2f86f6e-0ba0-40e5-8b93-4088779defa8',
+   'isUninstalling' => false,
+   'langcode' => 'en',
+   'third_party_settings' => 
+  array (
+  ),
+   '_core' => 
+  array (
+  ),
+   'trustedData' => false,
+   'entityTypeId' => 'field_storage_config',
+   'enforceIsNew' => NULL,
+   'typedData' => NULL,
+   'cacheContexts' => 
+  array (
+    0 => 'languages:language_interface',
+  ),
+   'cacheTags' => 
+  array (
+  ),
+   'cacheMaxAge' => -1,
+   '_serviceIds' => 
+  array (
+  ),
+   '_entityStorages' => 
+  array (
+  ),
+   'dependencies' => 
+  array (
+    'module' => 
+    array (
+      0 => 'file',
+      1 => 'image',
+      2 => 'node',
+    ),
+  ),
+   'isSyncing' => false,
+))
+
+```
