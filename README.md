@@ -1,4 +1,11 @@
-## Override Drupal controller
+## Find sub dirs of directory
+```php
+    $path = $this->fileSystem->realpath($dir);
+    $path = rtrim($path, '/') . '/';
+    $dirs = array_filter(glob($path . '*'), 'is_dir');
+```
+
+## Override Drupal Views controller
 ```
 // https://steemit.com/drupal/@develcuy/adding-custom-contextual-links-to-a-views-page-in-drupal-8
 
