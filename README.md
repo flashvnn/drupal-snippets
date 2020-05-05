@@ -1,3 +1,13 @@
+## Fix Install Drupal console error
+
++ Download latest composer.phar from https://getcomposer.org/download/
++ Move composer.phar to Drupal root directory
++ Remove folder vendor and composer.lock
++ Add "drupal/console": "~1.0" to composer.json
++ Run command php composer.phar install
+
+
+
 ## Find sub dirs of directory
 ```php
     $path = $this->fileSystem->realpath($dir);
