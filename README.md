@@ -1,3 +1,11 @@
+## Clear page cache when change attach library 
+```
+$tags[] = 'library_info';
+Cache::invalidateTags($tags);
+
+```
+
+
 ## Fix Install Drupal console error
 
 + Download latest composer.phar from https://getcomposer.org/download/
