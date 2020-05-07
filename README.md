@@ -1,5 +1,6 @@
 ## Clear page cache when change attach library 
-```
+
+```php
 $tags[] = 'library_info';
 Cache::invalidateTags($tags);
 
