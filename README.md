@@ -2,7 +2,7 @@
 ```bash
 composer create-project drupal/recommended-project my_site_name_dir
 ```
-// install custom module with composer
+## Install custom module with composer
 
 ```bash
 cd my_site_name_dir
