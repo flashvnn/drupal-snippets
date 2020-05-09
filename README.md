@@ -1,3 +1,16 @@
+## Install Drupal with composer
+```bash
+composer create-project drupal/recommended-project my_site_name_dir
+```
+// install custom module with composer
+
+```bash
+cd my_site_name_dir
+chmod -R 775 web/sites/default
+composer require drupal/admin_toolbar
+
+```
+
 ## Clear page cache when change attach library 
 
 ```php
