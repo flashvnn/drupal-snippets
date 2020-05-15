@@ -2,6 +2,7 @@
 https://medium.com/@djphenaproxima/how-to-bend-drupal-8-plugins-to-your-nefarious-will-94da0c31f095
 
 ```php
+<?php
 // Check plugin manager has alterInfo
 
 public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
