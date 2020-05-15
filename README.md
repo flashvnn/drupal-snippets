@@ -1,3 +1,25 @@
+## Drupal alter plugin information and definition 
+https://medium.com/@djphenaproxima/how-to-bend-drupal-8-plugins-to-your-nefarious-will-94da0c31f095
+
+```php
+// Check plugin manager has alterInfo
+
+public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
+  parent::__construct('Plugin/Filter', $namespaces, $module_handler, 'Drupal\filter\Plugin\FilterInterface', 'Drupal\filter\Annotation\Filter');
+  $this->alterInfo('filter_info');
+  $this->setCacheBackend($cache_backend, 'filter_plugins');
+}
+
+// Define function alter information
+
+function mymodule_filter_info_alter(array &$definitions) {
+  // Time to get schwifty in here
+}
+
+```
+
+
+
 ## Install Drupal with composer
 ```bash
 composer create-project drupal/recommended-project my_site_name_dir
