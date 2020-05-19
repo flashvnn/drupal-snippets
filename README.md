@@ -756,6 +756,11 @@ https://drupalize.me/blog/201512/speak-http-drupal-httpclient
   $request = $client->get('http://demo.ckan.org/api/3/action/package_list');
   $response = $request->getBody();
 
+// GET data with query parameter
+  $client->request('GET', 'http://httpbin.org', [
+      'query' => ['foo' => 'bar']
+  ]);
+
 // POST
   $client = \Drupal::httpClient();
   $request = $client->post('http://demo.ckan.org/api/3/action/group_list', [
@@ -764,7 +769,18 @@ https://drupalize.me/blog/201512/speak-http-drupal-httpclient
     ]
   ]);
   $response = json_decode($request->getBody());
-
+  
+  // post form param
+  $response = $client->request('POST', 'http://httpbin.org/post', [
+    'form_params' => [
+        'field_name' => 'abc',
+        'other_field' => '123',
+        'nested_field' => [
+            'nested' => 'hello'
+        ]
+    ]
+  ]);
+  
 // HTTP basic authentication
   $client = \Drupal::httpClient();
   $request = $client->get('https://api.github.com/user', [
