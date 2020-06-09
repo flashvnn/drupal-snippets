@@ -1,3 +1,37 @@
+## Update Drupal module to Drupal 9
+
+**Update module.info.yml**  
+Add config core_version_requirement: ^8 || ^9  
+Example
+```
+name: Entity Usage
+type: module
+description: Track usage of entities referenced by other entities.
+core_version_requirement: ^8.8 || ^9
+configure: entity_usage.settings.form
+package: Other
+
+```
+
+**Remove "drupal/core" in module's composer.json**  
+
+
+**Update config_export for ConfigEntity**  
+
+core/modules/system/src/Entity/Action.php   
+
+```
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "type",
+ *     "plugin",
+ *     "configuration",
+ *   }
+
+```
+
+
 ## Drupal alter plugin information and definition 
 https://medium.com/@djphenaproxima/how-to-bend-drupal-8-plugins-to-your-nefarious-will-94da0c31f095
 
