@@ -1,3 +1,17 @@
+## Override Drupal before request ajax 
+```
+(function($, Drupal, drupalSettings) {
+  var _beforeSend = Drupal.Ajax.prototype.beforeSend;
+  Drupal.Ajax.prototype.beforeSend = function(xmlhttprequest, options) {
+    if(isMatchUrl(options.url)) {
+      // Override data here
+    }
+    _beforeSend.call(this, xmlhttprequest, options);
+  };
+})(jQuery, Drupal, drupalSettings);
+```
+
+
 ## Update Drupal module to Drupal 9
 
 **Update module.info.yml**  
