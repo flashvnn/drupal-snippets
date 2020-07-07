@@ -1,5 +1,6 @@
 ## Override Drupal before request ajax 
-```
+
+```js
 (function($, Drupal, drupalSettings) {
   var _beforeSend = Drupal.Ajax.prototype.beforeSend;
   Drupal.Ajax.prototype.beforeSend = function(xmlhttprequest, options) {
