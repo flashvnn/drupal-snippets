@@ -5,6 +5,10 @@
 CREATE USER 'mysql'@'localhost' IDENTIFIED BY 'mysql';
 GRANT ALL ON mysql.* TO 'mysql'@'localhost';
 
+## Remove password validation policy
+
+uninstall plugin validate_password;
+
 ```
 
 
