@@ -9,6 +9,11 @@ GRANT ALL ON mysql.* TO 'mysql'@'localhost';
 
 uninstall plugin validate_password;
 
+
+## GRANT ALL PRIVILEGES for user.
+
+GRANT ALL PRIVILEGES ON *.* TO 'mysql'@'localhost';
+
 ```
 
 
