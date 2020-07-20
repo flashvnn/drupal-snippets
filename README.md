@@ -1,3 +1,13 @@
+## Mysql windows Linux SubSystem
+```
+## Add new mysql user to allow access from Windows host
+
+CREATE USER 'mysql'@'localhost' IDENTIFIED BY 'mysql';
+GRANT ALL ON mysql.* TO 'mysql'@'localhost';
+
+```
+
+
 ## Override Drupal before request ajax 
 
 ```js
