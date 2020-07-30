@@ -1,3 +1,30 @@
+## Add SSI include for apache
+```
+<VirtualHost *:80>
+        ServerName localhost
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/www/html
+        <Directory /var/www/html>
+                Options +Includes
+                AddType text/html .html
+                AddOutputFilter INCLUDES .html
+                AllowOverride All
+                Require all granted
+
+        </Directory>
+
+        # For most configuration files from conf-available/, which are
+        # enabled or disabled at a global level, it is possible to
+        # include a line for only one particular virtual host. For example the
+        # following line enables the CGI configuration for this host only
+        # after it has been globally disabled with "a2disconf".
+        #Include conf-available/serve-cgi-bin.conf
+</VirtualHost>
+
+```
+
+
 ## Mysql windows Linux SubSystem
 ```
 ## Add new mysql user to allow access from Windows host
