@@ -1,9 +1,9 @@
 # LAMP stack setup using WSL - Ubuntu 18.04 for Drupal developer
 
 <div style="text-align:center">
-<img src="./img/windows-logo.png" width="100">
-<img src="./img/ubuntu-logo.png" width="100">
-<img src="./img/druplicon-small.png" width="100">
+<img src="./windows-logo.png" width="100">
+<img src="./ubuntu-logo.png" width="100">
+<img src="./druplicon-small.png" width="100">
 </div>
 
 ## Install Ubuntu 18.04
@@ -17,7 +17,7 @@ Open PowerShell as Administrator and run:
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-<img src="./img/enable_wsl.png">
+<img src="./enable_wsl.PNG">
 
 * Download and install unbuntu app [here](
 https://www.microsoft.com/store/productId/9N9TNGVNDL3Q)
@@ -28,11 +28,11 @@ https://docs.microsoft.com/en-us/windows/wsl/compare-versions
 ### Updating the WSL 2 Linux kernel
 https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel
 
-<img src="./img/wsl_kernel.png">
+<img src="./wsl_kernel.PNG">
 
 ### Result
 
-<img src="./img/ubuntu_install.png">
+<img src="./ubuntu_install.PNG">
 
 ----------
 ### Upgrade
@@ -54,7 +54,7 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt-get install apache2 -y
 ```
 
-<img src="./img/apache.png">
+<img src="./apache.PNG">
 
 ### Install php7.2
 
@@ -238,7 +238,7 @@ C:\Windows\System32\drivers\etc\hosts
 
 Access site
 
-<img src="./img/drupal-blt.png">
+<img src="./drupal-blt.PNG">
 
 ## References:
 1. [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
