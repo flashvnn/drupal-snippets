@@ -1,6 +1,6 @@
 # Config PHPStorm for Drupal development
 
-## Drupal enabled:
+## Drupal project enabled :
 
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/drupal-enable.jpg)
 
