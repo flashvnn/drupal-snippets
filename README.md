@@ -1,3 +1,12 @@
+## Custom date format with Drupal service
+
+```php
+<?php
+
+\Drupal::service('date.formatter')->format($timespan, 'custom', 'Y/n/j H:i');
+
+```
+
 ## Add SSI include for apache
 ```
 <VirtualHost *:80>
