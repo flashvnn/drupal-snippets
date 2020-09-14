@@ -1,3 +1,12 @@
+## Formattable Markup without translate
+
+```php
+    return new FormattableMarkup("Welcome my @site", [
+      '@site' => "Drupal website",
+    ]);
+    
+```
+
 ## Custom date format with Drupal service
 
 ```php
