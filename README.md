@@ -1,3 +1,22 @@
+## PHPCS disable
+```php
+<?php
+
+// @codingStandardsIgnoreStart
+$times = array(
+ 60 * 60 * 12, // 12 hours.
+ 60 * 60 * 24, // 1 day.
+ 60 * 60 * 24 * 4, // 4 days.
+ 60 * 60 * 24 * 7, // 1 week.
+ 60 * 60 * 24 * 7 * 2, // 2 weeks.
+ 60 * 60 * 24 * 7 * 3, // 3 weeks.
+ 60 * 60 * 24 * 30, // 1 month.
+);
+// @codingStandardsIgnoreEnd
+
+```
+
+
 ## Formattable Markup without translate
 
 ```php
