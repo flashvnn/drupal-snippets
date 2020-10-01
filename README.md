@@ -1,3 +1,70 @@
+## Making region content available to node templates in Drupal 8
+```php
+
+/**
+* Implements hook_preprocess_node() for NODE document templates.
+*/
+function THEME_preprocess_node(&$variables) {
+  // Allowed view modes
+  $view_mode = $variables['view_mode']; // Retrieve view mode
+  $allowed_view_modes = ['full']; // Array of allowed view modes (for performance so as to not execute on unneeded nodes)
+ 
+  // If view mode is in allowed view modes list, pass to THEME_add_regions_to_node()
+  if(in_array($view_mode, $allowed_view_modes)) {
+    // Allowed regions (for performance so as to not execute for unneeded region)
+    $allowed_regions = ['primary_content'];
+    THEME_add_regions_to_node($allowed_regions, $variables);
+  }
+}
+ 
+/**
+* THEME_add_regions_to_node
+*/
+ 
+function THEME_add_regions_to_node($allowed_regions, &$variables) {
+  // Retrieve active theme
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+ 
+  // Retrieve theme regions
+  $available_regions = system_region_list($theme, 'REGIONS_ALL');
+ 
+  // Validate allowed regions with available regions
+  $regions = array_intersect(array_keys($available_regions), $allowed_regions);
+ 
+  // For each region
+  foreach ($regions as $key => $region) {
+ 
+    // Load region blocks
+    $blocks = entity_load_multiple_by_properties('block', array('theme' => $theme, 'region' => $region));
+ 
+    // Sort ‘em
+    uasort($blocks, 'Drupal\block\Entity\Block::sort');
+ 
+    // Capture viewable blocks and their settings to $build
+    $build = array();
+    foreach ($blocks as $key => $block) {
+      if ($block->access('view')) {
+        $build[$key] = entity_view($block, 'block');
+      }
+    }
+ 
+    // Add build to region
+    $variables[$region] = $build;
+  }
+}
+
+```
+
+Use in twig template, example node--node_type.html.twig 
+
+```
+
+{{ primary_content }}
+
+
+```
+
+
 ## PHPCS disable
 
 https://www.axelerant.com/resources/team-blog/php_codesniffer-ignoring-standards
