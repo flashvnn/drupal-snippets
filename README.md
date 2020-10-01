@@ -1,7 +1,9 @@
 ## PHPCS disable
+
+https://www.axelerant.com/resources/team-blog/php_codesniffer-ignoring-standards
+
 ```php
 <?php
-
 // @codingStandardsIgnoreStart
 $times = array(
  60 * 60 * 12, // 12 hours.
