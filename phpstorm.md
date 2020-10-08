@@ -61,3 +61,10 @@ Verify XDebug enabled
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebugconfig-1.jpg)
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug-config-2.jpg)
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug-config-3.jpg)
+
+
+## XDebug with Ubuntu WSL
+![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug_wsl_1.jpg)
+![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug_wsl_2.jpg)
+![](https://github.com/flashvnn/drupal-snippets/blob/master/xdebug_wsl_3.jpg)
+
