@@ -1,3 +1,31 @@
+## Use Docker install Postgres for Drupal
+
+```
+# Pull docker postgres
+docker pull postgres
+# Run postgres instance
+docker run --name drupal-postgres -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
+# Exec docker
+docker exec -it drupal-postgres bash
+# Create database and user;
+# Login to postgres command line
+psql -U postgres
+# Create db and user
+create database drupal;
+create user drupal with encrypted password 'drupal';
+grant all privileges on database drupal to drupal;
+# list
+\l
+# delete database
+DROP DATABASE drupal;
+
+# Logout
+exit;
+# Import database from outside
+docker exec -i drupal-postgres psql --username drupal --password drupal drupal < ./drupal-db-dump.sql
+
+```
+
 ## Making region content available to node templates in Drupal 8
 ```php
 
