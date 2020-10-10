@@ -1,6 +1,6 @@
 ## Use Docker install Postgres for Drupal
 
-```
+```bash
 # Pull docker postgres
 docker pull postgres
 # Run postgres instance
