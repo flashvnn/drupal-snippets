@@ -94,6 +94,9 @@ exit;
 # Import database from outside
 docker exec -i drupal-postgres psql --username drupal --password drupal drupal < ./drupal-db-dump.sql
 
+#Export database
+docker exec -i drupal-postgres pg_dump -U postgres -d  drupal > ./drupal.sql
+
 ```
 
 ## Making region content available to node templates in Drupal 8
