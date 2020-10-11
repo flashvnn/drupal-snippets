@@ -1,3 +1,73 @@
+## Styled checkbox
+
+![](https://github.com/flashvnn/drupal-snippets/blob/master/style-checkbox.png)
+
+```css
+  .js-form-type-textfield, .js-form-type-select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    label {
+      font-weight: bold;
+    }
+  }
+  .js-form-type-checkbox {
+    display: block;
+    position: relative;
+  }
+  .js-form-type-checkbox label {
+    display: block;
+    padding: 8px 0 12px 40px;
+  }
+
+  /*style and hide original checkbox*/
+  .js-form-type-checkbox input {
+    height: 40px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 40px;
+  }
+
+  /*position new box*/
+  .js-form-type-checkbox input + label::before {
+    border: 1px solid;
+    content: "";
+    height: 35px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 35px;
+  }
+
+  /*create check symbol with pseudo element*/
+  .js-form-type-checkbox input + label::after {
+    content: "";
+    border: 6px solid #fff;
+    border-left: 0;
+    border-top: 0;
+    height: 22px;
+    left: 12px;
+    opacity: 0;
+    position: absolute;
+    top: 6px;
+    transform: rotate(45deg);
+    transition: opacity 0.2s ease-in-out;
+    width: 12px;
+  }
+
+  /*reveal check for 'on' state*/
+  .js-form-type-checkbox input:checked + label::after {
+    opacity: 1;
+  }
+
+  .js-form-type-checkbox input:checked + label::before {
+    background: $purple;
+    border: 1px solid $purple;
+  }
+```
+
 ## Use Docker install Postgres for Drupal
 
 ```bash
