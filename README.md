@@ -251,7 +251,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'mysql'@'localhost';
 ```
 
 
-## Override Drupal before request ajax 
+## Override javscript function Drupal before request ajax 
 
 ```js
 (function($, Drupal, drupalSettings) {
