@@ -1,3 +1,12 @@
+## Commit Changes displaying "Contents are identical" when pushing changes.
+
+https://stackoverflow.com/questions/1580596/how-do-i-make-git-ignore-file-mode-chmod-changes
+
+```
+git config core.fileMode false
+
+```
+
 ## Styled checkbox
 
 ![](https://github.com/flashvnn/drupal-snippets/blob/master/style-checkbox.png)
