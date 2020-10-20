@@ -420,8 +420,6 @@ function getComponentData() {
 
 ## Debug email with Drupal
 
-Install module: https://www.drupal.org/project/devel
-
 Install module: https://www.drupal.org/project/devel_mail_logger
 
 Add setting to file sites/default/settings.php
