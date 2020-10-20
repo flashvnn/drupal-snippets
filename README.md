@@ -1,3 +1,16 @@
+## Drupal Drush as phar format
+```
+# Drush 8 phar (Support Drupal 7 & 8)
+https://github.com/drush-ops/drush/releases/download/8.4.5/drush.phar
+
+wget https://github.com/drush-ops/drush/releases/download/8.4.5/drush.phar
+
+php drush.phar cr
+
+```
+
+
+
 ## Commit Changes displaying "Contents are identical" when pushing changes.
 
 https://stackoverflow.com/questions/1580596/how-do-i-make-git-ignore-file-mode-chmod-changes
