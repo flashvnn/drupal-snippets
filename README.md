@@ -1,3 +1,16 @@
+## Fix twig chmod issue
+
+Warning: chmod(): Operation not permitted in Drupal\Component\PhpStorage\MTimeProtectedFastFileStorage
+
+```
+// Add in settings.php
+
+$settings['php_storage']['twig']['directory'] = '/tmp/sites-caching/php';
+$settings['php_storage']['twig']['secret'] = $settings['hash_salt'];
+```
+
+
+
 ## Drupal Drush as phar format
 ```
 # Drush 8 phar (Support Drupal 7 & 8)
