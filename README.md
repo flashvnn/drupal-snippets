@@ -1,3 +1,25 @@
+## use multiple SSH private keys on one client
+Edit/create file ~/.ssh/config
+
+```bash
+Host myshortname realname.example.com
+    HostName realname.example.com
+    IdentityFile ~/.ssh/realname_rsa # private key for realname
+    User remoteusername
+
+Host myother realname2.example.org
+    HostName realname2.example.org
+    IdentityFile ~/.ssh/realname2_rsa  # different private key for realname2
+    User remoteusername
+
+```
+Then you can use the following to connect:
+```bash
+ssh myshortname
+
+ssh myother
+```
+
 ## Fix twig chmod issue
 
 Warning: chmod(): Operation not permitted in Drupal\Component\PhpStorage\MTimeProtectedFastFileStorage
