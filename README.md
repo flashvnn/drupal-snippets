@@ -1,3 +1,11 @@
+##Drupal disable https verify when working with insecure ssl website
+
+```php
+
+$settings['http_client_config'] = ['verify' => FALSE];
+
+```
+
 ## use multiple SSH private keys on one client
 Edit/create file ~/.ssh/config
 
