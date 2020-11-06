@@ -1,3 +1,18 @@
+## Add jQuery core to header tag
+
+https://stackoverflow.com/questions/41059811/is-it-possible-to-force-drupal-8-core-jquery-to-go-to-the-header
+
+in your THEME.libraries.yml
+
+```yml
+global-styling:
+  header: true
+  dependencies:
+    - core/jquery
+
+```
+
+
 ## Drupal disable https verify when working with insecure ssl website
 
 ```php
