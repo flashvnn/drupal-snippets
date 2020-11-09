@@ -1,3 +1,22 @@
+## Complete remove mysql (mariadb) server on ubuntu
+
+
+```bash
+sudo apt remove --purge mysql-server
+sudo apt purge mysql-server
+sudo apt purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql
+```
+
+Reinstall maridadb
+
+```bash
+
+sudo apt-get install mariadb-server
+
+```
+
+
 ## Add jQuery core to header tag
 
 https://stackoverflow.com/questions/41059811/is-it-possible-to-force-drupal-8-core-jquery-to-go-to-the-header
