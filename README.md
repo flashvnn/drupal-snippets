@@ -1,3 +1,18 @@
+## XDEBUG 3.0 config with PHPSTORM
+
+```
+[xdebug]
+zend_extension=xdebug.so
+xdebug.mode = debug
+xdebug.client_host = "127.0.0.1"
+xdebug.client_port = 9000
+xdebug.remote_connect_back = false
+xdebug.var_display_max_depth = -1
+xdebug.var_display_max_children = -1
+xdebug.var_display_max_data = -1
+```
+
+
 ## Complete remove mysql (mariadb) server on ubuntu
 
 
