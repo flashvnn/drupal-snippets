@@ -1,4 +1,54 @@
-## XDEBUG 3.0 config with PHPSTORM
+## Drupal render array with cache
+
+```php
+// Cache tags with nodes
+
+$nodes = Node::loadMultiple($nids);
+$cacheTags = [];
+$nodeList = [];
+foreach ($nodes as $node) {
+  $nodeList[] = $node->label();
+  $cacheTags = Cache::mergeTags($cacheTags, $node->getCacheTags());
+}
+return [
+  '#markup' => implode(', ', $nodeList),
+  '#cache' => [
+    'tags' => $cacheTags,
+  ]
+];
+
+// Cache context
+/* There are several others:
+theme (vary by negotiated theme)
+user.roles (vary by the combination of roles)
+user.roles:anonymous (vary by whether the current user has the 'anonymous' role or not, i.e. "is anonymous user")
+languages (vary by all language types: interface, content …)
+languages:language_interface (vary by interface language — LanguageInterface::TYPE_INTERFACE)
+languages:language_content (vary by content language — LanguageInterface::TYPE_CONTENT)
+url (vary by the entire URL)
+url.query_args (vary by the entire given query string)
+url.query_args:foo (vary by the ?foo query argument
+/*
+
+return [
+  '#markup' => t('WeKnow is the coolest @time', ['@time' => time()]),
+  '#cache' => [
+    'contexts' => ['url.query_args'],
+  ]
+];
+
+// Cache “max-age”
+ return [
+   '#markup' => t('Temporary by 10 seconds @time', ['@time' => time()]),
+   '#cache' => [
+     'max-age' => 10,
+   ]
+ ];
+
+```
+
+
+## XDEBUG 3.0 config with PHPSTORM <= 2020.2
 
 ```
 [xdebug]
