@@ -1,3 +1,9 @@
+## Drupal twig sort by property
+```php
+// Example sort taxonomy
+{% set categories = categories|sort((a,b) => a.weight <=> b.weight) %}
+```
+
 ## Drupal render array with cache
 
 ```php
