@@ -1,3 +1,11 @@
+## Get file url relative and absolute
+```php
+$file_entity = File::load(1);
+$relative = $file_entity->createFileUrl(); // /sites/default/files/media/images/image-1.jpg
+$absolute = $file_entity->createFileUrl(false); // http://demosite.con/sites/default/files/media/images/image-1.jpg
+
+```
+
 ## Drupal twig sort by property
 ```php
 // Example sort taxonomy
