@@ -1,3 +1,16 @@
+## Javascript get nested property by string
+```js
+  function getDescendantProp (obj, desc) {
+    var arr = desc.split('.');
+    while (arr.length && (obj = obj[arr.shift()]));
+    return obj;
+  }
+  // Get property drupalSettings.my_module.data without need check drupalSettings.my_module exist.
+  var data = getDescendantProp(drupalSettings, 'my_module.data');
+  console.log(data);
+```
+
+
 ## Get file url relative and absolute
 ```php
 $file_entity = File::load(1);
