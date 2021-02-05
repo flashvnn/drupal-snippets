@@ -384,6 +384,14 @@ $times = array(
 ```
 
 ## Add SSI include for apache
+
+```
+// Ubuntu, add module include for apache
+sudo a2enmod include
+sudo a2enmod include.load
+```
+
+
 ```
 <VirtualHost *:80>
         ServerName localhost
