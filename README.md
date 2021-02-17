@@ -1,3 +1,24 @@
+## Add current title to breadcrumb
+```php
+/**
+ * Add current page to breadcrumb
+ */
+function THEME_NAME_preprocess_breadcrumb(&$variables) {
+  if ($variables['breadcrumb']) {
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    if (!empty($page_title)) {
+      $variables['breadcrumb'][] = [
+        'text' => $page_title
+      ];
+    }
+  }
+}
+
+
+```
+
 ## Javascript get nested property by string
 ```js
   function getDescendantProp (obj, desc) {
