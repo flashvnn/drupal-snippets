@@ -1,3 +1,20 @@
+## Ajax button with disable error message
+```php
+    $form['ajax_button'] = [
+      '#type' => 'button',
+      '#is_button' => TRUE,
+      '#executes_submit_callback' => FALSE, // Disable exec submit callback
+      '#limit_validation_errors' => [], // Disable validate.
+      '#value' => $this->t('Update'),
+      '#ajax' => [
+        'callback' => [self::class, 'ajaxCallback'],
+        'disable-refocus' => FALSE,
+        'wrapper' => 'contents__table',
+      ],
+    ];
+```
+
+
 ## Add current title to breadcrumb
 ```php
 /**
