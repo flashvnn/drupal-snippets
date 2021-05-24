@@ -1,3 +1,15 @@
+## Add admin route for custom entity
+```php
+class CustomEntityHtmlRouteProvider extends AdminHtmlRouteProvider {
+      public function getRoutes(EntityTypeInterface $entity_type) {
+        //...
+            // Add admin route for all routes.
+            $collection->addOptions(['_admin_route' => TRUE]);
+        //...
+      }
+}
+```
+
 ## Ajax button with disable error message
 ```php
     $form['ajax_button'] = [
