@@ -1,3 +1,32 @@
+## Drupal download remote image with http client
+```php
+
+  public function downloadImage(string $url, string $destination) {
+    try {
+      $result = $this->httpClient->get($url);
+      if ($result->getStatusCode() == 200) {
+        $tmp_file = $this->fileSystem->tempnam('temporary://', 'module_prefix_');
+        $handle = fopen($tmp_file, 'w');
+        fwrite($handle, $result->getBody());
+        fclose($handle);
+        if (is_file($tmp_file)) {
+          $image_size = @getimagesize($tmp_file);
+          if (empty($image_size)) {
+            @unlink($tmp_file);
+            return FALSE;
+          }
+          return $this->fileSystem->move($tmp_file, $destination, FileSystemInterface::EXISTS_REPLACE);
+        }
+      }
+    } catch (\Exception $e) {
+      $this->logger->error('Download image error: @url with message: @message', ['@url' => $url, '@message' => $e->getMessage()]);
+      return FALSE;
+    }
+    return FALSE;
+  }
+  
+```
+
 ## Create new file entity
 ```php
 
