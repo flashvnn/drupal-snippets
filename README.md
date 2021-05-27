@@ -1,3 +1,17 @@
+## Create new file entity
+```php
+
+    $file_data = [
+      'uri' => $uri,
+      'uid' => \Drupal::currentUser()->id(),
+      'status' => FILE_STATUS_PERMANENT,
+    ];
+    
+    $file = File::create($file_data);
+    $file->save();
+
+```
+
 ## Add admin route for custom entity
 ```php
 class CustomEntityHtmlRouteProvider extends AdminHtmlRouteProvider {
