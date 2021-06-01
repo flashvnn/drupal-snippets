@@ -1,3 +1,17 @@
+## Drupal render entity or node field
+```php
+
+  protected function renderEntityField(FieldableEntityInterface $entity, string $field) {
+    $display_options = EntityViewDisplay::collectRenderDisplay($entity, 'default')->getComponent($field);
+    $build = $entity->get($field)->view($display_options);
+    if (isset($build['#theme'])) {
+      unset($build['#theme']);
+    }
+    return \Drupal::service('renderer')->renderPlain($build);
+  }
+
+```
+
 ## Drupal download remote image with http client
 ```php
 
