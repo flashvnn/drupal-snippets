@@ -2378,6 +2378,9 @@ $fields= $entityManager->getFieldDefinitions($entity_type, $bundle);
 
     return $options;
   }
+  
+  // Get all node type
+  $node_types = $this->getEntityBundleOptions('node');
 ```
 
 
