@@ -1,3 +1,12 @@
+## Fix Vagrant ssl error
+```
+// Add this line
+
+config.vm.box_download_insecure =true
+
+
+```
+
 ## Drupal render entity or node field
 ```php
 
