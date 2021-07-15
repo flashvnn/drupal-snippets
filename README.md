@@ -1,8 +1,8 @@
 ## Fix Vagrant ssl error
 ```
 // Add this line
-
-config.vm.box_download_insecure =true
+Vagrant.configure("2") do |config|
+  config.vm.box_download_insecure =true
 
 
 ```
