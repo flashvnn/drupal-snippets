@@ -1,3 +1,19 @@
+## Config xdebug in vagrant
+```
+# config in php.ini or seprated xdebug.ini
+[xdebug]
+# config zend extension, can install with pecl install xdebug
+zend_extension=/usr/lib/php/20190902/xdebug.so
+xdebug.mode = debug
+# set client host to window ip
+xdebug.client_host=172.18.20.13
+# client port. check phpstorm config for debug port
+xdebug.client_port=9003
+
+xdebug.idekey=PHPSTORM
+
+```
+
 ## Fix Vagrant ssl error
 ```
 // Add this line
