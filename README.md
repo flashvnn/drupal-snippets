@@ -2,6 +2,43 @@
 
 [Config PHPStorm for Drupal development](phpstorm.md)
 
+## BaseFieldDefinition for Drupal double_field
+
+```
+ $fields['double_field'] = BaseFieldDefinition::create('double_field')
+      ->setLabel("Select Options")
+      ->setSettings([
+        'first' => [
+          'type' => 'string',
+          'label' => t('Question'),
+          'maxlength' => 255,
+          'list' => FALSE,
+          'required' => TRUE,
+        ],
+        'second' => [
+          'type' => 'string',
+          'label' => t('Answer'),
+          'maxlength' => 255,
+          'list' => FALSE,
+          'required' => TRUE,
+        ],
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'double_field',
+        'weight' => 3,
+        'settings' => ['inline' => TRUE],
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'hidden',
+        'type' => 'double_field_unformatted_list',
+        'weight' => 3,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setCardinality(FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED);
+    ;
+
+```
 
 ## Config xdebug in vagrant
 ```
