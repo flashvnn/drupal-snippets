@@ -2,6 +2,37 @@
 
 [Config PHPStorm for Drupal development](phpstorm.md)
 
+## Drupal NestedArray example:
+
+```php
+$data = [
+    'container' =>
+    [
+        'products' => [
+            'edges' => [
+                ['node' => ['title' => 'Node 1']],
+                ['node' => ['title' => 'Node 2']],
+            ]
+        ]
+    ]
+];
+// Get edges data
+$edges = NestedArray::getValue($data, ['container', 'products', 'edges']);
+
+// Get non existent data
+
+$taxonomy = NestedArray::getValue($data, ['container', 'products', 'taxonomy']);
+
+// $taxonomy is null
+
+// Set value for taxonomy
+
+NestedArray::setValue($data, ['container', 'products', 'taxonomy'], ['taxonomy1', 'taxonomy2']);
+
+
+```
+
+
 ## BaseFieldDefinition for Drupal double_field
 
 ```
