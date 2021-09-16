@@ -1,3 +1,55 @@
+## Javascript get and get properties by string
+```javascript
+ /* Implementation of lodash.get function */
+  Object.getData = function (obj, key, def, p, undef) {
+    key = key.split ? key.split('.') : key;
+    for (p = 0; p < key.length; p++) {
+      obj = obj ? obj[key[p]] : undef;
+    }
+    return obj === undef ? def : obj;
+  };
+
+  /* Implementation of lodash.set function */
+  Object.setData = function(obj, keys, val) {
+    keys.split && (keys=keys.split('.'));
+    var i=0, l=keys.length, t=obj, x, k;
+    for (; i < l;) {
+      k = keys[i++];
+      if (k === '__proto__' || k === 'constructor' || k === 'prototype') break;
+      t = t[k] = (i === l) ? val : (typeof(x=t[k])===typeof(keys)) ? x : (keys[i]*0 !== 0 || !!~(''+keys[i]).indexOf('.')) ? {} : [];
+    }
+  };
+  
+// Example:
+let obj = {
+	a: {
+		b: {
+			c: 1,
+			d: undefined,
+			e: null
+		}
+	}
+};
+
+//use string dot notation for keys
+Object.getData(obj, 'a.b.c') === 1;
+
+//or use an array key
+Object.getData(obj, ['a', 'b', 'c']) == 1;
+  
+
+var foo = { abc: 123 };
+Object.setData(foo, 'foo.bar', 'hello');
+// or: dset(foo, ['foo', 'bar'], 'hello');
+console.log(foo);
+//=> {
+//=>   abc: 123,
+//=>   foo: { bar: 'hello' },
+//=> }
+
+```
+
+
 ## PHPSTORM
 
 [Config PHPStorm for Drupal development](phpstorm.md)
