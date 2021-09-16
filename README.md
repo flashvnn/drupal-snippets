@@ -1,4 +1,4 @@
-## Javascript get and get properties by string
+## Javascript get and set properties by string
 ```javascript
  /* Implementation of lodash.get function */
   Object.getData = function (obj, key, def, p, undef) {
@@ -40,7 +40,7 @@ Object.getData(obj, ['a', 'b', 'c']) == 1;
 
 var foo = { abc: 123 };
 Object.setData(foo, 'foo.bar', 'hello');
-// or: dset(foo, ['foo', 'bar'], 'hello');
+// or: Object.setData(foo, ['foo', 'bar'], 'hello');
 console.log(foo);
 //=> {
 //=>   abc: 123,
