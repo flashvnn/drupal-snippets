@@ -1,3 +1,11 @@
+## Drupal consle export content-type yaml config
+```bash
+drupal config:export:content:type --module=new_module --remove-uuid --remove-config-hash content_type_to_export
+# Example
+drupal config:export:content:type --module=my_module --remove-uuid --remove-config-hash article
+
+```
+
 ## Javascript get and set properties by string
 ```javascript
  /* Implementation of lodash.get function */
