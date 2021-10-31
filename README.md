@@ -1,3 +1,9 @@
+## jQuery update input value and triger Vue update
+
+```js
+$("#test").val("testing")[0].dispatchEvent(new Event('input'));
+```
+
 ## Drupal consle export content-type yaml config
 ```bash
 drupal config:export:content:type --module=new_module --remove-uuid --remove-config-hash content_type_to_export
