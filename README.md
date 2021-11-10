@@ -1,3 +1,34 @@
+## Override jsonapi output for field
+```
+https://medium.com/@chris.geelhoed/how-to-alter-json-responses-with-drupal-8s-json-api-and-rest-web-service-7671f9c16658
+services:
+  MY_MODULE.typed_data:
+    class: Drupal\kc_library\Normalizer\MyNormalizerClass
+    tags:
+      - { name: normalizer, priority: 10 }
+      
+<?php
+namespace Drupal\MY_MODULE\Normalizer;
+use Drupal\serialization\Normalizer\TypedDataNormalizer;
+/**
+ * {@inheritdoc}
+ */
+class MyNormalizerClass extends TypedDataNormalizer {
+/**
+   * {@inheritdoc}
+   */
+  public function normalize($entity, $format = NULL, array $context = []) {
+    $data = parent::normalize($entity, $format, $context);
+    // transform your data here
+    // You'll likely need to run some checks on the $entity or $data
+    // variables and include conditionals so that only the items
+    // you are interested in are altered
+    return $data;
+  }
+}
+```
+
+
 ## jQuery update input value and triger Vue update
 
 ```js
