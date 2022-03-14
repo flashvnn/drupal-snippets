@@ -27,9 +27,11 @@ Create twig template file `webform-submission-contact-add-form.html.twig`
 ```php
 {% if form.preview %}
   {# theme for preview page #}
-  {{ form.elements.name['#default_value'] }}
-  {# get value of options #}
   
+  {# get value of text field #}
+  {{ form.elements.name['#default_value'] }}
+  
+  {# get value of checkbox, radio options #}
   {% set options = form.elements.gender['#options'] %}
   {% set value = form.elements.gender['#default_value'] %}
   {{ options[value] }}
@@ -37,6 +39,7 @@ Create twig template file `webform-submission-contact-add-form.html.twig`
   
   {{ form.actions }}
 {% else %}
+  {# theme for input page #}
   {{ form.elements.name }}
   {{ form.actions }}
 {% endif %}
