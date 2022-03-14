@@ -1,9 +1,121 @@
 ## Theme Drupal webform
+Example create theme for webform id `contact`
 
+Alter form and add webform theme function
+```php
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mymodule_form_webform_submission_contact_add_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['#theme'] = ['webform_submission_contact_add_form'];
+}
 
+/**
+ * Implements hook_theme().
+ */
+function mymodule_theme($existing, $type, $theme, $path) {
+  return [
+    'webform_submission_contact_add_form' => [
+      'render element' => 'form',
+    ],
+  ];
+}
 
+``
+Create twig template file `webform-submission-contact-add-form.html.twig`
 
+```php
+{% if form.preview %}
+  {# theme for preview page #}
+  {{ form.elements.name['#default_value'] }}
+  {# get value of options #}
+  
+  {% set options = form.elements.gender['#options'] %}
+  {% set value = form.elements.gender['#default_value'] %}
+  {{ options[value] }}
 
+  
+  {{ form.actions }}
+{% else %}
+  {{ form.elements.name }}
+  {{ form.actions }}
+{% endif %}
+{{ form.form_build_id }}
+{{ form.form_token }}
+{{ form.form_id }}
+````
+Easy way add template suggestion
+
+```php
+/**
+ * Suggestion based on attribute.
+ *
+ * @param string $base
+ *   The base element.
+ * @param array $suggestions
+ *   The suggestions.
+ * @param array $variables
+ *   The variables.
+ */
+function mytheme_theme_suggestions_twig_attribute(string $base, array &$suggestions, array $variables) {
+  if (empty($variables['element'])) {
+    return;
+  }
+  $element = $variables['element'];
+  if (isset($element['#attributes']['data-twig-suggestion'])) {
+    $template = $base . '__' . $element['#type'] . '__' . $element['#attributes']['data-twig-suggestion'];
+    if (!in_array($template, $suggestions)) {
+      $suggestions[] = $template;
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for textarea.
+ */
+function mytheme_theme_suggestions_radios_alter(&$suggestions, $variables) {
+  mytheme_theme_suggestions_twig_attribute('radios', $suggestions, $variables);
+}
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for input.
+ */
+function jobcard_theme_suggestions_input_alter(&$suggestions, $variables) {
+  mytheme_theme_suggestions_twig_attribute('input', $suggestions, $variables);
+}
+```
+
+Add theme suggestion for webform button
+
+```php
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mymodule_form_webform_submission_contact_add_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  //...
+  if (isset($form['actions']['preview'])) {
+    $form['actions']['preview_prev']['#attributes']['data-twig-suggestion'] = 'webform__contact__preview';
+  }
+  if (isset($form['actions']['preview_prev'])) {
+    $form['actions']['preview_prev']['#attributes']['data-twig-suggestion'] = 'webform__contact__preview_prev';
+  }
+ if (isset($form['actions']['submit'])) {
+  $form['actions']['submit']['#attributes']['data-twig-suggestion'] = 'webform__contact__submit';
+ }
+}
+```
+
+Now you can create template for button:
+input--submit--webform--contact--preview.html.twig
+input--submit--webform--contact--preview-prev.html.twig
+input--submit--webform--contact--submit.html.twig
+
+Example template for input--submit--webform--contact--preview.html.twig
+```twig
+<button {{ attributes.addClass('bnt-preview') }}>
+  <span>CUSTOM PREVIEW</span>
+</button>
+
+```
 ## Override jsonapi output for field
 ```
 https://medium.com/@chris.geelhoed/how-to-alter-json-responses-with-drupal-8s-json-api-and-rest-web-service-7671f9c16658
