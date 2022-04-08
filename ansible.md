@@ -9,3 +9,27 @@
     state: present
   notify: restart apache
 ```
+
+## Config mysql
+
+```yml
+- name: Remove the MySQL test database.
+  mysql_db: db=test state=absent
+- name: Create a database for Drupal.
+  mysql_db: "db={{ domain }} state=present"
+  
+```
+
+## Install composer and drush
+
+```yml
+- name: Install Composer into the current directory.
+  shell: >
+    curl -sS https://getcomposer.org/installer | php
+    creates=/usr/local/bin/composer
+- name: Move Composer into globally-accessible location.
+  shell: >
+    mv composer.phar /usr/local/bin/composer
+    creates=/usr/local/bin/composer
+
+```
