@@ -43,3 +43,34 @@
     dest: /usr/local/bin/drush
     state: link
 ```
+
+## Install Drupal from git
+
+```yml
+- name: Check out Drupal Core to the Apache docroot.
+  git:
+    repo: http://git.drupal.org/project/drupal.git
+    version: "{{ drupal_core_version }}"
+    dest: "{{ drupal_core_path }}"
+- name: Install Drupal.
+  command: >
+    drush si -y --site-name="{{ drupal_site_name }}" --account-name=admin
+    --account-pass=admin --db-url=mysql://root@localhost/{{ domain }}
+    chdir={{ drupal_core_path }}
+    creates={{ drupal_core_path }}/sites/default/settings.php
+  notify: restart apache
+
+- name: Set permissions properly on settings.php.
+  file:
+    path: "{{ drupal_core_path }}/sites/default/settings.php"
+    mode: 0744
+
+- name: Set permissions on files directory.
+  file:
+    path: "{{ drupal_core_path }}/sites/default/files"
+    mode: 0777
+    state: directory
+    recurse: yes
+
+```
+
