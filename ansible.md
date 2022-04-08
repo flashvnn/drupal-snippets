@@ -20,7 +20,7 @@
   
 ```
 
-## Install composer and drush
+## Install composer
 
 ```yml
 - name: Install Composer into the current directory.
@@ -32,4 +32,14 @@
     mv composer.phar /usr/local/bin/composer
     creates=/usr/local/bin/composer
 
+```
+
+## Create symlink
+
+```yml
+- name: Create drush bin symlink.
+  file:
+    src: /opt/drush/drush
+    dest: /usr/local/bin/drush
+    state: link
 ```
