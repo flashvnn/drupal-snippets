@@ -40,3 +40,8 @@ Vagrant.configure("2") do |config|
   config.vm.box_download_insecure =true
   
 ```  
+
+## JSON ParserError when meta file is malformed
+
+Delete folder __.vagrant__ where has file __Vagrantfile__
+
