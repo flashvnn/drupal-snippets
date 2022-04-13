@@ -32,3 +32,11 @@ vagrant plugin uninstall vagrant-vbguest
 vagrant plugin install vagrant-vbguest --plugin-version 0.21
 ```
 
+## Fix Vagrant ssl error
+
+```
+// Add this line
+Vagrant.configure("2") do |config|
+  config.vm.box_download_insecure =true
+  
+```  
