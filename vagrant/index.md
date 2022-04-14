@@ -47,7 +47,7 @@ Delete folder __.vagrant__ where has file __Vagrantfile__
 
 ## Run vagrant ansible provision with params
 
-```
+```ruby
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
  
@@ -61,10 +61,12 @@ Vagrant.configure("2") do |config|
     end
     ...
 end
-```
-__Example__
 
 ```
+
+__Example__
+
+```php
 # If running first time, runs all tasks within provisioning otherwise just starts the VM and ignores all tasks
 $ vagrant up
  
@@ -88,4 +90,4 @@ $ ANSIBLE_ARGS='--tags "tag_1,tag_2,..."' vagrant reload --provision
  
 # You can also use other tags like below
 $ ANSIBLE_ARGS='--skip-tags "tag_1,tag_2,..."' vagrant ...
-``
+```
