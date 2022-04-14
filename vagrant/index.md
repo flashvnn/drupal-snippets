@@ -45,3 +45,47 @@ Vagrant.configure("2") do |config|
 
 Delete folder __.vagrant__ where has file __Vagrantfile__
 
+## Run vagrant ansible provision with params
+
+```
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+ 
+Vagrant.configure("2") do |config|
+    ...
+    config.vm.provision "ansible" do |ansible|
+        ...
+        ansible.playbook = "provisioning/site.yml"
+        ansible.raw_arguments = Shellwords.shellsplit(ENV["ANSIBLE_ARGS"]) if ENV["ANSIBLE_ARGS"]
+        ...
+    end
+    ...
+end
+```
+__Example__
+
+```
+# If running first time, runs all tasks within provisioning otherwise just starts the VM and ignores all tasks
+$ vagrant up
+ 
+# Runs all tasks within provisioning without restarting the VM
+$ vagrant provision
+ 
+# Does not run provisioning but restarts the VM
+$ vagrant reload
+ 
+# Runs all tasks within provisioning with restarting the VM
+$ vagrant reload --provision
+ 
+# If running first time, runs tasks for given tags within provisioning otherwise just starts the VM and ignores all tasks.
+$ ANSIBLE_ARGS='--tags "tag_1,tag_2,..."' vagrant up
+ 
+# Runs tasks for given tags within provisioning without restarting the VM
+$ ANSIBLE_ARGS='--tags "tag_1,tag_2,..."' vagrant provision
+ 
+# Runs tasks for given tags within provisioning with restarting the VM
+$ ANSIBLE_ARGS='--tags "tag_1,tag_2,..."' vagrant reload --provision
+ 
+# You can also use other tags like below
+$ ANSIBLE_ARGS='--skip-tags "tag_1,tag_2,..."' vagrant ...
+``
