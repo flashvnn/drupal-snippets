@@ -1,3 +1,15 @@
+## Handler json data from javascript post
+
+```php
+class MyController extends ControllerBase {
+   public function handlerPost(Request $request) {
+     $json = $request->getContent();
+     $json = Json::decode($json);
+   }
+}
+```
+
+
 ## Theme Drupal webform
 Example create theme for webform id `contact`
 
