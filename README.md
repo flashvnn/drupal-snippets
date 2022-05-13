@@ -1,3 +1,16 @@
+## Fix Install php74-zip extension error on CentOS
+
+
+```bash
+pecl uninstall zip
+pecl install zip
+# if has error with zipconf.h
+cp /usr/local/lib/libzip/include/zipconf.h /usr/local/include/zipconf.h
+pecl install zip
+
+```
+
+
 ## Handler json data from javascript post
 
 ```php
