@@ -1,3 +1,14 @@
+## Check mysql installed
+
+```yml
+- name: check mysql version
+  shell: mysql --version
+  register: mysql_version
+  ignore_errors: true
+  changed_when: false
+  failed_when: false
+```
+
 ## Configure PHP ini with lineinfile
 
 ```yml
