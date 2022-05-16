@@ -1,3 +1,9 @@
+## vagrant resync updated ansible to vm machine
+
+```shell
+vagrant rsync
+```
+
 ## Check mysql installed
 
 ```yml
