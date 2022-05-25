@@ -2,6 +2,8 @@
 
 Reference: https://rtfm.co.ua/en/mysql-mariadb-most-used-commands-with-examples/
 
+## General commands
+
 ### To check MySQL status run:
 
 ```bash
@@ -19,3 +21,42 @@ mysql -u username -p
 ```bash
 mysql -u username -p -h db1.example.com
 ```
+
+## Working with databases and tables
+
+### To create a database:
+
+```bash
+mysql> CREATE DATABASE [databasename];
+```
+
+### List all databases on the current MySQL server:
+
+```bash
+mysql> SHOW DATABASES;
+```
+
+### Connect to a database to start working with it:
+
+```bash
+mysql> USE [db name];
+```
+
+### To delete database:
+
+```bash
+mysql> DROP DATABASE [database name];
+```
+
+### List all tables in a current database:
+
+```bash
+mysql> SHOW TABLES;
+```
+
+### Display table’s columns types and descriptions:
+
+```bash
+mysql> DESCRIBE [table name];
+```
+
