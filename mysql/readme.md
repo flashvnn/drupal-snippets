@@ -8,6 +8,67 @@ Reference: https://rtfm.co.ua/en/mysql-mariadb-most-used-commands-with-examples/
 
 ```bash
 systemctl status mysql
+systemctl status mariadb.service
+
+service mysql status
+service mariadb status
+ 
+```
+
+### Start Mysql
+
+```bash
+
+# Centos 6 #
+# service mysql start
+or
+# /etc/init.d/mysql start
+# Centos 7 #
+# systemctl start mariadb.service
+or
+# systemctl start mysql.service
+or
+# systemctl start mariadb
+or
+# systemctl start mysql
+
+```
+
+### Stop Mysql
+
+```bash
+# Centos 6 #
+# service mysql stop
+or
+# /etc/init.d/mysql stop
+
+# Centos 7 #
+# systemctl stop mariadb.service
+or
+# systemctl stop mysql.service
+or
+# systemctl stop mariadb
+or
+# systemctl stop mysql
+
+```
+
+### Restart Mysql
+
+```bash
+# Centos 6 #
+# service mysql restart
+or
+# /etc/init.d/mysql restart
+
+# Centos 7 #
+# systemctl restart mariadb.service
+or
+# systemctl restart mysql.service
+or
+# systemctl restart mariadb
+or
+# systemctl restart mysql
 ```
 
 ### To connect to a MySQL server running on the same host:
