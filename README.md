@@ -1,3 +1,11 @@
+## Get local ip of system (example running  in docker container)
+
+```php
+$localIP = getHostByName(getHostName());
+// Displaying the address 
+echo $localIP;
+```
+
 ## Fix Install php74-zip extension error on CentOS
 
 
