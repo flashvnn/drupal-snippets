@@ -1,3 +1,12 @@
+## Drush config location priority
+```
+//Referecen: https://github.com/drush-ops/drush/blob/9.6.0-rc3/src/Config/ConfigLocator.php#L282
+
+$siteRoot/docroot/sites/all/drush/drush.yml
+$siteRoot/drush/drush.yml
+/drush/drush.yml
+```
+
 ## Get local ip of system (example running  in docker container)
 
 ```php
