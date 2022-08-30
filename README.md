@@ -1,3 +1,10 @@
+## XDebug when use drush command
+```
+#Open command line and input bellow before call drush command
+
+export XDEBUG_CONFIG="idekey=PHPSTORM"
+```
+
 ## Drush config location priority
 ```
 //Referecen: https://github.com/drush-ops/drush/blob/9.6.0-rc3/src/Config/ConfigLocator.php#L282
