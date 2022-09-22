@@ -1,3 +1,9 @@
+## Restart webmin
+
+```bash
+sudo /etc/webmin/restart
+```
+
 ## PHP ini location
 
 ```bash
