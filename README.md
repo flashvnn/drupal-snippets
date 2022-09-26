@@ -3,6 +3,10 @@
 #Open command line and input bellow before call drush command
 
 export XDEBUG_CONFIG="idekey=PHPSTORM"
+
+## For run in docker
+export PHP_IDE_CONFIG="serverName=devdomain.local"
+
 ```
 
 ## Drush config location priority
