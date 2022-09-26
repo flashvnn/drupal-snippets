@@ -136,7 +136,7 @@ function mytheme_theme_suggestions_radios_alter(&$suggestions, $variables) {
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for input.
  */
-function jobcard_theme_suggestions_input_alter(&$suggestions, $variables) {
+function mytheme_theme_suggestions_input_alter(&$suggestions, $variables) {
   mytheme_theme_suggestions_twig_attribute('input', $suggestions, $variables);
 }
 ```
