@@ -1,3 +1,19 @@
+## Drupal render html div with attributes
+
+```php
+
+$build = [
+      '#type' => 'html_tag',
+      '#tag' => 'div',
+      '#value' => 'CONTENT FOR DIV',
+      '#attributes' => [
+        'id' => 'my_div_id',
+        'style' => 'display: none',
+      ],
+]      
+
+```
+
 ## XDebug when use drush command
 ```
 #Open command line and input bellow before call drush command
