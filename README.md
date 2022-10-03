@@ -1,3 +1,55 @@
+## Vue 3 Eventbus with Drupal
+
+Install mitt module
+
+```bash
+npm i mitt
+```
+
+Create lib/EventBus.ts
+
+```ts
+import mitt from "mitt";
+export default mitt()
+```
+
+Update main.ts
+```
+import { createApp } from 'vue'
+import App from './App.vue'
+import EventBus from "./lib/EventBus"
+
+(window as any).EventBus = EventBus;
+
+let app = createApp(App)
+app.mount('#app')
+
+```
+
+Emit event in Vue component
+
+```vue
+<script lang="ts" setup>
+import EventBus from "./../lib/EventBus"
+const onClickHandle = () => {
+ EventBus.emit("my_event", {id: 1});
+}
+```
+
+Handler event in Drupal
+
+```js
+(function ($, Drupal) {
+
+$(document).ready(function () {
+   window.EventBus.on('my_event', function (data) {
+     console.log(data);
+   });
+});
+
+})(jQuery, Drupal);
+```
+
 ## Drupal render html div with attributes
 
 ```php
