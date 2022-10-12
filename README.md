@@ -1,3 +1,22 @@
+## Node delete confirm form alter
+
+```php
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function mymodule_form_node_confirm_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Only need to alter the delete operation form.
+  if ($form_state->getFormObject()->getOperation() !== 'delete') {
+    return;
+  }
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $form_state->getFormObject()->getEntity();
+  if ($node->getType() === 'page') {
+    // action with node page.
+  }
+}
+```
+
 ## Vue 3 Eventbus with Drupal
 
 Install mitt module
