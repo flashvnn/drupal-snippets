@@ -1,3 +1,29 @@
+## Drupal.t translate in Vue js
+
+```
+# Create Drupal.ts
+export class Drupal {
+  static t(str: string) {
+    if ((window as any)?.Drupal) {
+      return (window as any)?.Drupal.t(str);
+    }
+    return str;
+  }
+}
+
+#in App.vue or other .vue files:
+
+<script>
+import {Drupal} from "~/lib/Drupal";
+
+</script>
+
+<template>
+ <h1> Hello {{ Drupal.t('Drupal') }} </h1>
+</template>
+
+```
+
 ## Node delete confirm form alter
 
 ```php
