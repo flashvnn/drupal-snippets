@@ -2133,6 +2133,9 @@ $database = \Drupal::database();
 $query = $database->query("SELECT id, example FROM {mytable}");
 $result = $query->fetchAll();
 
+// Fetch all as Array
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
+
 // query with place holder
 $query = $database->query("SELECT id, example FROM {mytable} WHERE created > :created", [
   ':created' => REQUEST_TIME - 3600,
