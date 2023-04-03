@@ -1,3 +1,24 @@
+## Change custom entity collection page title.
+```
+# update file CustomEntityHtmlRouteProvider
+  public function getRoutes(EntityTypeInterface $entity_type) {
+    $collection = parent::getRoutes($entity_type);
+
+    $entity_type_id = $entity_type->id();
+
+    if ($settings_form_route = $this->getSettingsFormRoute($entity_type)) {
+      $collection->add("$entity_type_id.settings", $settings_form_route);
+    }
+
+    if ($entity_collection_route = $collection->get('entity.custom_entity.collection')) {
+      $entity_collection_route->setDefault('_title', '@label');
+    }
+
+    return $collection;
+  }
+
+```
+
 ## Drupal.t translate in Vue js
 
 ```
