@@ -1,3 +1,12 @@
+## XDEBUG 3
+```
+[xdebug]
+zend_extension="C:\xampp\php\ext\php_xdebug-3.2.1-8.0-vs16-x86_64.dll"
+xdebug.mode=debug
+xdebug.client_host=127.0.0.1
+xdebug.client_port="9003"
+```
+
 ## Change custom entity collection page title.
 ```
 # update file CustomEntityHtmlRouteProvider
