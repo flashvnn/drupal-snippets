@@ -35,7 +35,7 @@ xdebug.client_port="9003"
       $collection->add("$entity_type_id.settings", $settings_form_route);
     }
 
-    if ($entity_collection_route = $collection->get('entity.custom_entity.collection')) {
+    if ($entity_collection_route = $collection->get('entity.' . $entity_type_id . '.collection')) {
       $entity_collection_route->setDefault('_title', '@label');
     }
 
