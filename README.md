@@ -1,3 +1,18 @@
+## Change default shell user's PHP version
+
+```
+nano ~/.bash_profile
+
+# Add end of file this line with /usr/local/php82/bin is location of PHP8.2
+export PATH=/usr/local/php82/bin:$PATH 
+
+# Save file
+
+. ~/.bash_profile
+
+```
+
+
 ## Fix openssl not working on Windows xampp
 
 ```
