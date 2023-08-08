@@ -1,3 +1,31 @@
+## Drupal Select2 use ajax callback after select item
+
+```
+public function form(array $form, FormStateInterface $form_state) {
+    $form['my_item'] = [
+      '#type' => 'item',
+      '#markup' => 'Before Ajax',
+    ];
+
+    $form['select2'] = [
+      '#type' => 'select2',
+      '#title' => t('My select2 form element'),
+      '#options' => ['foo', 'bar'],
+      '#ajax' => [
+        'callback' => [self::class, 'ajaxCallback'],
+        'wrapper' => 'ajax_item_wrapper',
+        'event' => 'select2:close',
+      ],
+    ];
+}
+
+public static function ajaxCallback($form, FormStateInterface $form_state) {
+  $form['my_item']['#markup'] = 'Selected item: ' . $form_state->getValue('select2');
+  return $form['my_item'];
+}
+
+```
+
 ## Change default shell user's PHP version
 
 ```
