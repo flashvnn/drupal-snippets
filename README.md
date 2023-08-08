@@ -5,6 +5,8 @@ public function form(array $form, FormStateInterface $form_state) {
     $form['my_item'] = [
       '#type' => 'item',
       '#markup' => 'Before Ajax',
+      '#prefix' => '<div id="ajax_item_wrapper">',
+      '#suffix' => '</div>',
     ];
 
     $form['select2'] = [
