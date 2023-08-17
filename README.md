@@ -1,3 +1,30 @@
+## Drupal apply patch with composer.json
+
+Run command:
+
+```
+composer require cweagans/composer-patches
+```
+
+Add patch infomation
+
+```
+"extra": {
+    "patches": {
+        "drupal/core": {
+            "Undocumented title variable in feed-icon.html.twig": "patches/3156260-11.patch"
+        }
+    }
+}
+```
+
+Run composer install
+
+```
+composer install
+```
+
+
 ## Drupal Select2 use ajax callback after select item
 
 ```
