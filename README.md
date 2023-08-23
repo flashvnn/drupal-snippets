@@ -4,7 +4,7 @@ https://www.lilengine.co/articles/custom-views-filter-existing-daterange-field
 
 **myfilter.module**
 
-```
+```php
 <?php
 
 /**
@@ -31,7 +31,7 @@ function myfilter_views_data_alter(array &$data) {
 
 This is the the filter plugin. It lives in your module at src/Plugins/views/filter/MyEventFilter.php.
 
-```
+```php
 <?php
 
 namespace Drupal\myfilter\Plugin\views\filter;
@@ -134,8 +134,10 @@ class MyEventFilter extends FilterPluginBase {
 
 }
 ```
-Schema config
-```
+
+**Schema config**
+
+```yml
 # Lives in the module at ./config/schema/myfilter.views.schema.yml
 
 # 'myevent_filter' should match your plugin name.
