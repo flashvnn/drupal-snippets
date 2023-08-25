@@ -1,3 +1,97 @@
+## Drupal custom entity basefield
+
+```
+https://fivejars.com/blog/entity-basefielddefinitions-fields-examples-drupal-8
+```
+
+### Drupal core has the following field types:
+
++ boolean
++ changed
++ created
++ decimal
++ email
++ entity_reference
++ float
++ integer
++ language
++ map
++ password
++ string
++ string_long
++ timestamp
++ uri
++ uuid
++ comment
++ datetime
++ file
++ image
++ link
++ list_float
++ list_integer
++ list_string
++ path
++ telephone
++ text
++ text_long
++ text_with_summary
+
+__entity_reference__
+
+```php
+
+  $fields['article'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Article'))
+      ->setDescription(t('Article related to demo entity.'))
+      ->setSetting('target_type', 'node')
+      ->setSetting('handler', 'default:node')
+      ->setSetting('handler_settings', [
+        'target_bundles' => ['article' => 'article'],
+        'auto_create' => FALSE,
+      ])
+      ->setRequired(TRUE)
+      ->setTranslatable(FALSE)
+      ->setDisplayOptions('view', [
+        'label' => 'visible',
+        'type' => 'string',
+        'weight' => 2,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 2,
+        'settings' => [
+          'match_operator' => 'CONTAINS',
+          'size' => '60',
+          'placeholder' => 'Enter here article title...',
+        ],
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE);
+```
+
+__string_long__
+
+```php
+$fields['notes'] = BaseFieldDefinition::create('string_long')
+      ->setLabel(t('Notes'))
+      ->setDescription(t('Example of string_long field.'))
+      ->setDefaultValue('')
+      ->setRequired(FALSE)
+      ->setDisplayOptions('view', [
+        'label' => 'visible',
+        'type' => 'basic_string',
+        'weight' => 5,
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'string_textarea',
+        'weight' => 5,
+        'settings' => ['rows' => 4],
+      ])
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayConfigurable('form', TRUE);
+```
+
+
 ## Add new views filter for exist field
 
 https://www.lilengine.co/articles/custom-views-filter-existing-daterange-field
