@@ -1,3 +1,10 @@
+## Docker: Add a restart policy to a container that was already created
+
+```
+docker update --restart=always <container>
+```
+
+
 ## Drupal custom entity basefield
 
 ```
