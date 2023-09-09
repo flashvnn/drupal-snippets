@@ -1,3 +1,9 @@
+## Fix Drupal/PHP/Composer patch not working on Mac OS
+
+```
+brew install gpatch
+```
+
 ## Docker: Add a restart policy to a container that was already created
 
 ```
