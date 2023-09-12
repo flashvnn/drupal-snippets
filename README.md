@@ -1,3 +1,16 @@
+## Drupal print pretty json output
+
+```php
+
+    $form['json_data'] = [
+      '#type' => 'item',
+      '#title' => $this->t('JSON'),
+      '#markup' => '<pre>' . json_encode($json_object, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . '</pre>',
+    ];
+
+```
+
+
 ## Fix Drupal/PHP/Composer patch not working on Mac OS
 
 ```
