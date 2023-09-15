@@ -49,7 +49,10 @@ window.fetch = async (...args) => {
     response
       .clone()
       .json()
-      .then((data) => ({ ...data, title: `Intercepted: ${data.title}` }));
+      .then((data) => function(){
+            console.log('Intercepted:', data)
+            return { ...data, title: `Intercepted: ${data.title}` }
+       });
 
   response.json = json;
   return response;
