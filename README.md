@@ -1,3 +1,73 @@
+## Intercepting JavaScript Fetch API requests and responses
+
+```
+https://blog.logrocket.com/intercepting-javascript-fetch-api-requests-responses/
+```
+
+**Request interceptor**:
+
+```js
+const { fetch: originalFetch } = window;
+window.fetch = async (...args) => {
+    let [resource, config ] = args;
+
+    // request interceptor starts
+    resource = 'https://jsonplaceholder.typicode.com/todos/2';
+    // request interceptor ends
+
+    const response = await originalFetch(resource, config);
+
+    // response interceptor here
+    return response;
+};
+
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+.then((response) => response.json())
+.then((json) => console.log(json));
+
+// log
+// {
+//   "userId": 1,
+//   "id": 2,
+//   "title": "quis ut nam facilis et officia qui",
+//   "completed": false
+// }
+```
+
+**Response interceptor:**
+
+```js
+const { fetch: originalFetch } = window;
+window.fetch = async (...args) => {
+  let [resource, config] = args;
+
+  let response = await originalFetch(resource, config);
+
+  // response interceptor
+  const json = () =>
+    response
+      .clone()
+      .json()
+      .then((data) => ({ ...data, title: `Intercepted: ${data.title}` }));
+
+  response.json = json;
+  return response;
+};
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
+// log
+// {
+//     "userId": 1,
+//     "id": 1,
+//     "title": "Intercepted: delectus aut autem",
+//     "completed": false
+// }
+```
+
 ## Drupal print pretty json output
 
 ```php
