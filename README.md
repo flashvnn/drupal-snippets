@@ -1,3 +1,29 @@
+## install nodejs on linux without sudo
+```
+https://www.johnpapa.net/node-and-npm-without-sudo/
+
+Install Node.js from https://nodejs.org/en/download/
+
+Update to the latest version of npm npm install npm -g
+
+Make a new folder for the npm global packages mkdir ~/.npm-packages
+
+Tell npm where to find/store them npm config set prefix ~/.npm-packages
+
+Verify the install
+
+Make a folder for your npm packages and tell your computer about it.
+
+mkdir "${HOME}/.npm-packages"
+echo NPM_PACKAGES="${HOME}/.npm-packages" >> ${HOME}/.bashrc
+echo prefix=${HOME}/.npm-packages >> ${HOME}/.npmrc
+echo NODE_PATH=\"\$NPM_PACKAGES/lib/node_modules:\$NODE_PATH\" >> ${HOME}/.bashrc
+echo PATH=\"\$NPM_PACKAGES/bin:\$PATH\" >> ${HOME}/.bashrc
+echo source "~/.bashrc" >> ${HOME}/.bash_profile
+source ~/.bashrc
+
+```
+
 ## Intercepting JavaScript Fetch API requests and responses
 
 ```
