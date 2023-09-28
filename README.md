@@ -1,3 +1,97 @@
+## Linux find command examples
+
+```bash
+
+#Find by name
+find . -name “*.jpg”
+...
+./Pictures/iPhoto Library/Data/2006/Roll 20/00697_bluewaters_1440x900.jpg
+./Pictures/iPhoto Library/Data/2006/Roll 20/00705_cloudyday_1440x900.jpg
+./Pictures/iPhoto Library/Data/2006/Roll 20/00710_fragile_1600x1200.jpg
+./Pictures/iPhoto Library/Data/2006/Roll 20/00713_coolemoticon_1440x900.jpg
+./Pictures/iPhoto Library/Data/2006/Roll 20/00714_cloudyday_1440x900.jpg
+...
+
+#Find by User
+find . -user daniel
+...
+./Music/iTunes/iTunes Music/Tool/Undertow/01 Intolerance.m4a
+./Music/iTunes/iTunes Music/Tool/Undertow/02 Prison Sex.m4a
+./Music/iTunes/iTunes Music/Tool/Undertow/03 Sober.m4a
+...
+
+#Find only directories
+find . -type d
+...
+./Development/envelope
+./Development/mhp
+...
+
+#Find everything over a megabyte in size
+find ~/Movies/ -size +1024M
+
+...
+/Movies/Comedy/Funny.mpg
+/Movies/Drama/Sad.avi
+...
+
+#Show me what content owned by root have been modified within the last minute
+find /etc/ -user root -mtime 1
+
+...
+/etc/passwd
+/etc/shadow
+...
+
+#The checks you can use here are:
+#-atime: when the file was last accessed
+#-ctime: when the file’s permissions were last changed
+#-mtime: when the file’s data was last modified
+
+
+# find all files in my directory with open permissions
+find ~ -perm 777
+...
+~/testfile.txt
+~/lab.rtf
+...
+
+#Find all files on your system that are world writeable
+find / – perm -0002
+
+#Correct the permissions on your web directory
+find /your/webdir/ -type d -print0 | xargs -0 chmod 755;find /your/webdir -type f | xargs chmod 644
+
+#Find files that have been modified within the last month and copy them somewhere
+find /etc/ -mtime -30 | xargs -0 cp /a/path
+
+#Daniel’s files of type jpeg
+find . -user daniel -type f -name *.jpg
+
+...
+./Pictures/iPhoto Library/autumn_woods.jpg
+./Pictures/iPhoto Library/blue_forest.jpg
+./Pictures/iPhoto Library/brothers.jpg
+...
+
+Daniel’s jpeg files without autumn in the name
+find . -user daniel -type f -name *.jpg ! -name autumn*
+
+...
+./Pictures/iPhoto Library/blue_forest.jpg
+./Pictures/iPhoto Library/brothers.jpg
+...
+
+#Root’s ruby files accessed in the last two minutes
+find /apps/ -user root -type f -amin -2 -name *.rb
+
+...
+/apps/testing.rb
+/apps/runme.rb
+...
+
+```
+
 ## install nodejs on linux without sudo
 ```
 https://www.johnpapa.net/node-and-npm-without-sudo/
