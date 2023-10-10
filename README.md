@@ -1,3 +1,10 @@
+## Bash script fix error with \r
+
+```
+sed -i 's/\r$//' filename
+```
+
+
 ## Linux find command examples
 
 ```bash
