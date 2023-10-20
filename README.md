@@ -7,6 +7,8 @@ find for: 'system.schema'
 
 ```
 
+![hook_node_update](images/hook_node_update_info.png)
+
 ## Bash script fix error with \r
 
 ```
