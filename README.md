@@ -1,3 +1,12 @@
+## Find hook node update information in database
+
+```
+table: key_value
+column: collection
+find for: 'system.schema'
+
+```
+
 ## Bash script fix error with \r
 
 ```
