@@ -1,3 +1,17 @@
+## Remove unwanted tab on node view/edit/delete page
+
+```
+/**
+ * Hide view tab from node edit.
+ */
+function MYMODULE_menu_local_tasks_alter(&$data, $route_name, \Drupal\Core\Cache\RefinableCacheableDependencyInterface &$cacheability) {
+  if($route_name == 'entity.node.edit_form'){
+    unset($data['tabs'][0]['entity.node.canonical']);
+  }
+}
+
+```
+
 ## Find hook node update information in database
 
 ```
