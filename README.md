@@ -1,3 +1,9 @@
+## Custom Entity list builder with view
+```
+https://git.drupalcode.org/project/entity_extra/blob/HEAD/src/Controller/ViewsEntityListBuilder.php
+```
+
+
 ## Remove unwanted tab on node view/edit/delete page
 
 ```
