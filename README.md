@@ -2297,7 +2297,8 @@ $query->sort('field_birthday', 'ASC');
 $query = \Drupal::entityQuery('node');
 $query->condition('type', 'produit');
 $nb_resultats = $query->count()->execute();
-
+// Debug and get query string.
+dump($query->__toString());
 
 ```
 
