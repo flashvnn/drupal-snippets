@@ -18,6 +18,15 @@ $settings['hash_salt'] = '$HASH_SALT';
 $settings["file_temp_path"] = 'sites/default/files/tmp';
 $settings['config_sync_directory'] = '../config';
 $settings['trusted_host_patterns'][] = '.*';
+
+$config['system.logging']['error_level'] = 'verbose';
+
+/**
+ * Disable CSS and JS aggregation.
+ */
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
+
 ```
 
 ## Move cursor to begin and end of line on MacOS
