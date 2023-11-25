@@ -1,3 +1,25 @@
+## Config settings.local.php for local development with pantheon.io
+
+```php
+<?php
+
+$databases['default']['default'] = [
+    'database' => 'drupal10',
+    'username' => 'drupal10',
+    'password' => 'drupal10',
+    'host' => 'database',
+    'port' => '3306',
+    'driver' => 'mysql',
+    'prefix' => '',
+    'collation' => 'utf8mb4_general_ci',
+];
+
+$settings['hash_salt'] = '$HASH_SALT';
+$settings["file_temp_path"] = 'sites/default/files/tmp';
+$settings['config_sync_directory'] = '../config';
+$settings['trusted_host_patterns'][] = '.*';
+```
+
 ## Move cursor to begin and end of line on MacOS
 
 ```
