@@ -1,3 +1,9 @@
+## Move cursor to begin and end of line
+
+```
+Control + A for goto the beginning and Control + E to goto the end
+```
+
 ## Custom Entity list builder with view
 ```
 https://git.drupalcode.org/project/entity_extra/blob/HEAD/src/Controller/ViewsEntityListBuilder.php
