@@ -1,4 +1,4 @@
-## Move cursor to begin and end of line
+## Move cursor to begin and end of line on MacOS
 
 ```
 Control + A for goto the beginning and Control + E to goto the end
