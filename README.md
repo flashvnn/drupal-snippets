@@ -1,3 +1,36 @@
+## Drupal Views alter Filter to CAST() string as Float
+
+```
+https://stackoverflow.com/questions/33417033/drupal-views-alter-filter-to-cast-string-as-float
+
+function custom_helpers_views_query_alter(&$view, &$query) {
+  if ( $view->name == 'mietangebote' ) {
+
+    // Miete
+    if(!empty($view->exposed_raw_input['field_baserent_value'])){
+
+      foreach($query->where[1]['conditions'] as $key => $condition) {
+        if ( $condition['field'] == 'field_data_field_baserent.field_baserent_value' ) {
+          $query->where[1]['conditions'][$key]['operator'] = 'formula'; // important. 
+          $query->where[1]['conditions'][$key]['value'] = array(':val' => (double)$query->where[1]['conditions'][$key]['value']); 
+          $query->where[1]['conditions'][$key]['field'] = 'CAST(' . $query->where[1]['conditions'][$key]['field'] . ' AS UNSIGNED) >= :val';
+          //dpm($view->query->where[1]['conditions'][$key]);
+          break; 
+        }
+      }
+
+      // For sorting as well
+      foreach($query->orderby as $key => $condition) {
+        if ( $condition['field'] == 'field_data_field_count_field_count_value' ) {              
+          $query->orderby[$key]['field'] = 'CAST(' . $query->orderby[$key]['field'] . ' AS UNSIGNED)'; 
+          break; 
+        }
+      }
+    }
+  }
+}
+```
+
 ## Config settings.local.php for local development with pantheon.io
 
 ```php
