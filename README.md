@@ -1,3 +1,10 @@
+## Clear cache with drush sql query
+
+```bash
+vendor/bin/drush sql:query "TRUNCATE cachetags;TRUNCATE cache_bootstrap;TRUNCATE cache_config;TRUNCATE cache_container;TRUNCATE cache_data;TRUNCATE cache_default;TRUNCATE cache_discovery;TRUNCATE cache_dynamic_page_cache;TRUNCATE cache_entity;TRUNCATE cache_menu;TRUNCATE cache_page;TRUNCATE cache_render;TRUNCATE cache_toolbar;"
+
+```
+
 ## Drupal Views alter Filter to CAST() string as Float
 
 ```
