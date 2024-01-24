@@ -7,8 +7,8 @@ vendor/bin/drush sql:query "TRUNCATE cachetags;TRUNCATE cache_bootstrap;TRUNCATE
 
 ## Drupal Views alter Filter to CAST() string as Float
 
-```
-https://stackoverflow.com/questions/33417033/drupal-views-alter-filter-to-cast-string-as-float
+```php
+//https://stackoverflow.com/questions/33417033/drupal-views-alter-filter-to-cast-string-as-float
 
 function custom_helpers_views_query_alter(&$view, &$query) {
   if ( $view->name == 'mietangebote' ) {
