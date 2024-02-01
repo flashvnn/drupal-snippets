@@ -1,7 +1,7 @@
 ## Workflow label from state key
 
 ```
-    $workflow_state = $this->getTokenValue($this->configuration['workflow_state'], TRUE);
+    $workflow_state = $entity->get('moderation_state')->value;
     /** @var \Drupal\content_moderation\ModerationInformation $moderation_information_service */
     $moderation_information_service = \Drupal::service('content_moderation.moderation_information');
     $label = '';
