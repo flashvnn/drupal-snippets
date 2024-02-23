@@ -1,3 +1,12 @@
+## PHP quick convert string to number
+
+```php
+
+$str_num = '3.14';
+$number = is_number($str_num) ? $str_num + 0 : $str_num;
+
+```
+
 ## Workflow label from state key
 
 ```
