@@ -1,3 +1,10 @@
+## Only allow access with Cloudflare proxy with .htaccess
+
+```
+RewriteCond %{HTTP:CF-RAY} ^$
+RewriteRule ^ - [F,L]
+```
+
 ## Javascript clear client data, cahce, cookie, session
 
 ```js
