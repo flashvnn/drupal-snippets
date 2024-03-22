@@ -1,4 +1,4 @@
-## Only allow access with Cloudflare proxy with .htaccess
+## Only allow access with Cloudflare proxy with .htaccess, prevent ddos
 ![2024-03-20__16-41-48](https://github.com/flashvnn/drupal-snippets/assets/1784547/6771f9b1-f265-4fa1-99f1-b17c4e7bb747)
 
 ```
