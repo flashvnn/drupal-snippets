@@ -9,6 +9,8 @@ RewriteCond %{HTTP:X-MY-TOKEN} ^$
 RewriteRule ^ - [F,L]
 ```
 
+Change X-MY-TOKEN with your private name.
+
 ## Javascript clear client data, cahce, cookie, session
 
 ```js
