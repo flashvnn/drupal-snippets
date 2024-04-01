@@ -1,3 +1,33 @@
+## What is .well-known/traffic-advice directory?
+
+```
+https://webmasters.stackexchange.com/questions/138033/what-is-well-known-traffic-advice-directory
+
+# Create file .well-known/traffic-advice
+# Insert content
+
+[{
+  "user_agent": "prefetch-proxy",
+  "google_prefetch_proxy_eap": {
+    "fraction": 1.0
+  }
+}]
+
+# Config htaccess for Apache
+
+RewriteRule ^\.well-known/traffic-advice$ - [T=application/trafficadvice+json,END]
+
+# Config Nginx
+
+# Private Prefetch Proxy
+# https://developer.chrome.com/blog/private-prefetch-proxy/
+location /.well-known/traffic-advice {
+   types { } default_type "application/trafficadvice+json; charset=utf-8";
+}
+
+```
+
+
 ## Drupal drush sql dump/import with compress
 
 ```
