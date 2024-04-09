@@ -1,3 +1,11 @@
+## Install nvm and nodejs per user on linux without root
+
+```
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source ~/.bashrc   
+nvm install node 
+```
+
 ## Composer don't copy to libraries folder
 
 Config npm and bower
