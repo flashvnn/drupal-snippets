@@ -1,3 +1,14 @@
+## Composer don't copy to libraries folder
+
+Config npm and bower
+
+https://drupaljournal.com/gist/install-npm-and-bower-packages-using-composer-drupal
+
+```
+composer require --no-update oomphinc/composer-installers-extender:^2
+composer update oomphinc/composer-installers-extender npm-asset/jquery-validation
+```
+
 ## What is .well-known/traffic-advice directory?
 
 ```
