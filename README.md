@@ -1,3 +1,15 @@
+## Apache proxy pass to nodejs application with websocket
+
+```
+ProxyPass / http://localhost:8080/
+ProxyPassReverse / http://localhost:8080/
+
+RewriteCond %{HTTP:Upgrade} websocket [NC]
+RewriteCond %{HTTP:Connection} upgrade [NC]
+RewriteRule ^/?(.*) "ws://localhost:8080/$1" [P,L]
+
+```
+
 ## Install nvm and nodejs per user on linux without root
 
 ```
