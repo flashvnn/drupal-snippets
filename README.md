@@ -1,3 +1,21 @@
+## Drupal update module and install custom entity 
+
+```
+/**
+ * Install custom entity my_custom_entity.
+ */
+function my_module_update_10002(&$sandbox): void {
+  // Check if the table exists first.  If not, then create the entity.
+  if (!\Drupal::database()->schema()->tableExists('my_custom_entity')) {
+    \Drupal::entityTypeManager()->clearCachedDefinitions();
+    \Drupal::entityDefinitionUpdateManager()
+      ->installEntityType(\Drupal::entityTypeManager()->getDefinition('my_custom_entity'));
+  }
+}
+
+```
+
+
 ## Apache proxy pass to nodejs application with websocket
 
 ```
