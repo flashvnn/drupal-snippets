@@ -27,6 +27,8 @@ if ! grep -q "$COMPOSER_DIR" <<< "$PATH"; then
     source ~/.bashrc
 fi
 
+source ~/.bashrc
+
 # Verify the installation
 composer -V
 
