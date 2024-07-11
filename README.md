@@ -1,5 +1,10 @@
 ## Bash script install composer for linux user
 
+```
+curl -s https://raw.githubusercontent.com/flashvnn/drupal-snippets/master/composer/install_composer.sh | bash
+```
+
+
 ```bash
 #!/bin/bash
 
