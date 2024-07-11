@@ -1,3 +1,17 @@
+## Drupal twig get custom field module data 
+
+https://www.drupal.org/project/custom_field
+
+```
+{% set attributes_data = [] %}
+{% for k, v in content.field_attributes[0]['#items'] %}
+    {% set attributes_data = attributes_data|merge({(v['#name'] ~ ''):v['#value']}) %}
+{% endfor %}
+
+# Render the id
+{{ attributes_data['id'] }}
+```
+
 ## Bash script install composer for linux user
 
 ```
