@@ -668,7 +668,7 @@ function myfilter_views_data_alter(array &$data) {
 }
 ```
 
-This is the the filter plugin. It lives in your module at src/Plugins/views/filter/MyEventFilter.php.
+This is the the filter plugin. It lives in your module at src/Plugin/views/filter/MyEventFilter.php.
 
 ```php
 <?php
