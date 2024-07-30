@@ -1,3 +1,12 @@
+## Check node in preview mode with twig
+
+```
+{% if node.in_preview %}
+  <p> PREVIEW MODE <p>
+{% endif %}
+
+```
+
 ## Twig get file/image url of media 
 
 ```
