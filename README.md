@@ -20,7 +20,7 @@ node-->[field_of_node]-->entity-->[field_of_media]-->entity-->fileuri
 ## Twig get link url of reference content
 
 ```
-node-->[field_of_node]-->[0][field_of_reference][0]['#url']
+content-->[field_of_node]-->[0][field_of_reference][0]['#url']
 
 {% set link_url = content.field_banner[0]['field_banner_link'][0]['#url']|render  %}
 
