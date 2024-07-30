@@ -1,6 +1,6 @@
 ## Check node in preview mode with twig
 
-```
+```twig
 {% if node.in_preview %}
   <p> PREVIEW MODE <p>
 {% endif %}
