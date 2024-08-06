@@ -74,11 +74,7 @@ php -r "unlink('$INSTALLER_PATH');"
 # Ensure the install directory is in the PATH
 if ! grep -q "$COMPOSER_DIR" <<< "$PATH"; then
     echo "export PATH=\"$COMPOSER_DIR:\$PATH\"" >> ~/.bashrc
-    source ~/.bashrc
 fi
-
-# Verify the installation
-composer -V
 
 echo "Composer installed successfully in $COMPOSER_DIR"
 
