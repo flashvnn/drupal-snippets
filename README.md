@@ -44,6 +44,7 @@ https://www.drupal.org/project/custom_field
 
 ```
 curl -s https://raw.githubusercontent.com/flashvnn/drupal-snippets/master/composer/install_composer.sh | bash
+source ~/.bashrc
 ```
 
 
