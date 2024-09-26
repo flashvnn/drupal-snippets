@@ -1,3 +1,9 @@
+## Composer ignore custom repositories
+
+```
+composer config repositories.packagist false
+```
+
 ## Check node in preview mode with twig
 
 ```twig
