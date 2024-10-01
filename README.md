@@ -1,3 +1,32 @@
+## Export CSV with Vietnamese language
+
+```php
+<?php
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Csv;
+
+// Tạo một Spreadsheet mới
+$spreadsheet = new Spreadsheet();
+$sheet = $spreadsheet->getActiveSheet();
+
+// Thêm dữ liệu vào bảng tính
+$sheet->setCellValue('A1', 'Họ tên');
+$sheet->setCellValue('A2', 'Nguyễn Văn A');
+
+// Tạo writer cho CSV
+$writer = new Csv($spreadsheet);
+$writer->setDelimiter(','); // Ký tự phân cách
+$writer->setEnclosure('"'); // Ký tự bao quanh
+$writer->setLineEnding("\r\n"); // Ký tự kết thúc dòng
+$writer->setUseBOM(true); // Sử dụng BOM cho UTF-8, Important
+
+// Xuất file CSV
+header('Content-Type: text/csv; charset=utf-8'); // Important
+header('Content-Disposition: attachment; filename="data.csv"');
+$writer->save('php://output');
+```
+
+
 ## Composer ignore custom repositories
 
 ```
