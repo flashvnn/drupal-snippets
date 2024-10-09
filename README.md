@@ -1,3 +1,12 @@
+## Using Drush command with VBO
+
+```
+# drush vbo-execute some_view some_action --args=arg1/arg2 --batch-size=50 --display-id=page_1 --user-id=1
+# publish unpublished content
+
+drush vbo-exec view_unpublish_content entity:publish_action:node --display-id=page_1 --user-id=1
+```
+
 ## Export CSV with Vietnamese language
 
 ```php
