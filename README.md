@@ -1,3 +1,14 @@
+## Fix Git newline issue on MAC
+
+```bash
+git config --global core.autocrlf input
+
+# On the project has git newline issue
+git rm -rf --cached .
+git reset --hard HEAD
+
+```
+
 ## Using Drush command with VBO
 
 ```
