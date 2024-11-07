@@ -1,3 +1,21 @@
+## Drush get all field name of content type
+
+```
+$ vendor/bin/drush field-info node article
++-------------+----------+-------------------+-------------+
+| Field name  | Required | Field type        | Cardinality |
++-------------+----------+-------------------+-------------+
+| body        |          | text_with_summary | 1           |
+| comment     |          | comment           | 1           |
+| field_image |          | image             | 1           |
+| field_tags  |          | entity_reference  | -1          |
++-------------+----------+-------------------+-------------+
+
+```
+
+
+
+
 ## Fix Git newline issue on MAC
 
 ```bash
