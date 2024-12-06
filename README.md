@@ -1,3 +1,22 @@
+## DNS, nameserver not working on WSL2
+
+```
+Update content for /etc/wsl.conf
+
+[network]
+generateResolvConf = false
+
+Update content for /etc/resolv.conf
+
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+
+make it not change
+
+sudo chattr +i /etc/resolv.conf
+
+```
+
 ## Drush get all field name of content type
 
 ```
