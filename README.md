@@ -1,3 +1,25 @@
+## Install php 8.3 with extensions for Drupal
+
+```
+sudo apt install php8.3 php8.3-cli php8.3-common php8.3-fpm php8.3-curl php8.3-gd php8.3-mbstring php8.3-xml php8.3-zip php8.3-soap php8.3-intl php8.3-bcmath php8.3-opcache php8.3-mysql php8.3-pgsql php8.3-sqlite3 php8.3-imap php8.3-readline -y
+```
+
+## Config default PHP version when installed multiple PHP versions
+
+```
+sudo apt update && sudo apt upgrade -y
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update
+
+## Install php 8.3 above
+
+sudo update-alternatives --config php
+## Choose default php version
+
+ 
+```
+
 ## DNS, nameserver not working on WSL2
 
 ```
