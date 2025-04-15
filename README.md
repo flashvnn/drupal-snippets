@@ -1,3 +1,15 @@
+## Alter the Drupal token with ECA Token Alter
+
+https://www.drupal.org/project/token_eca_alter
+
+```
+[token-eca:{existing token}#{key}#{other_key}]
+
+[token-eca:node:title#truncate]
+[token-eca:node:title#truncate{length:100}]
+
+```
+
 ## Install php 8.3 with extensions for Drupal
 
 ```
