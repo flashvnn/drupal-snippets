@@ -1,3 +1,14 @@
+## Import exist config to new site
+
+```
+bash sync_site_uuid_and_cleanup.sh
+
+## OR with config folder argument
+
+bash sync_site_uuid_and_cleanup.sh /path/to/your/config
+
+```
+
 ## Alter the Drupal token with ECA Token Alter
 
 https://www.drupal.org/project/token_eca_alter
