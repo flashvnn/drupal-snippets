@@ -1,3 +1,13 @@
+## Add drush alias site url
+
+```
+# Edit file {DRUPAL_ROOT}/drush/drush.yml
+options:
+  uri: 'https://YOUR-DOMAIN-HERE'
+
+```
+
+
 ## Import exist config to new site
 
 ```
