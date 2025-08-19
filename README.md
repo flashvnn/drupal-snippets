@@ -42,6 +42,44 @@
 -   You can target many entities at once using wildcards (e.g., `node.type.*`) and bundle placeholders like `%bundle`/`%label` in certain actions.
 
 
+### Example recipe
+
+```yaml
+name: Tiny demo of config actions
+type: Recipe
+description: Sets site name, creates a Content editor role, and places a menu block.
+
+install:
+  modules:
+    - block
+
+config:
+  actions:
+    # 1) Tweak simple config.
+    system.site:
+      simpleConfigUpdate:
+        name: "My Example Site"
+        mail: "admin@example.com"
+
+    # 2) Create a role if missing, then grant permissions.
+    user.role.content_editor:
+      createIfNotExists:
+        label: "Content editor"
+      grantPermissions:
+        - "access content"
+
+    # 3) Place a block into the site's current default theme.
+    #    This will create a block config entity and put it in the region.
+    block.block.main_menu_from_recipe:
+      placeBlockInDefaultTheme:
+        plugin_id: "system_menu_block:main"
+        region: "sidebar_first"   # Or use a per-theme map; 'position' can be first/last.
+        position: "first"
+        settings:
+          label: "Main navigation"
+          label_display: "visible"
+```
+
 
 ## Add drush alias site url
 
