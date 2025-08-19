@@ -1,3 +1,48 @@
+## Drupal Recipe `config: actions`
+
+### Works on any config entity
+
+-   `cloneAs`
+
+-   `create`, `createIfNotExists`
+
+-   `createForEach`, `createForEachIfNotExists` (loop over bundles)
+
+-   `enable`, `disable`, `setStatus`
+
+-   `set`, `setMultiple`
+
+-   `setThirdPartySetting`, `setThirdPartySettings`
+
+-   `simpleConfigUpdate` *(note below about deprecation on config entities)*
+
+-   `setProperties` *(newer replacement for certain uses of `simpleConfigUpdate` on config entities)*
+### Drupal Recipe `config: actions` Entity-specific actions
+
+-   *User roles (`user.role.*`)*: `grantPermission`, `grantPermissions`.
+
+-   *Fields (`field.field.*.*.*`)*: `setDefaultValue`, `setDescription`, `setLabel`, `setRequired`, `setSettings`, `setTranslatable`.
+
+-   *Field storage (`field.storage.*.*`)*: `addToAllBundles`.
+
+-   *Displays (`core.entity_view_display.*` / `core.entity_form_display.*`)*: `setComponent`, `hideComponents`, `allowLayoutOverrides`, `enableLayoutBuilder`, `disableLayoutBuilder`, `createCopy`.
+
+-   *Blocks (`block.block.*`)*: `placeBlockInAdminTheme`, `placeBlockInDefaultTheme`, `setRegion`, `setWeight`. project.pages.drupalcode.org
+
+-   *Navigation (`navigation.block_layout`)*: `addNavigationBlock`.
+
+-   *CKEditor (`editor.editor.*`, `filter.format.*`)*: `addItemToToolbar`, `setFilterConfig`.
+
+-   *Workflows (`workflows.workflow.*`)*: `add<EntityType>` (e.g., `addNodeTypes`, `addTaxonomyVocabularies`).
+
+-   *Contact form (`contact.form.*`)*: `setMessage`, `setRecipients`, `setRedirectPath`, `setReply`, `setWeight`.
+
+### Wildcards & tokens
+
+-   You can target many entities at once using wildcards (e.g., `node.type.*`) and bundle placeholders like `%bundle`/`%label` in certain actions.
+
+
+
 ## Add drush alias site url
 
 ```
