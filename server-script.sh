@@ -237,10 +237,18 @@ install_additional_php() {
         if ! command -v add-apt-repository &> /dev/null; then
             apt-get install -y software-properties-common
         fi
-        add-apt-repository -y ppa:ondrej/php
+        
+        # Check if PPA is already added to avoid duplication
+        if ! grep -r "ondrej/php" /etc/apt/sources.list /etc/apt/sources.list.d/ &> /dev/null; then
+             add-apt-repository -y ppa:ondrej/php
+        else
+             echo "PPA ondrej/php appears to be already installed. Skipping addition."
+        fi
+        
         apt-get update
     elif [[ "$OS" == "debian" ]]; then
         # Add Repository for Debian (sury.org)
+        # Note: This uses '>' to overwrite the file, preventing duplication on re-runs
         apt-get install -y lsb-release ca-certificates curl
         curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
         sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
